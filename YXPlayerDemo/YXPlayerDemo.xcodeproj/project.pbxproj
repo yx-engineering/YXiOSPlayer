@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		32034AA91D742A51001C9AA4 /* YXLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32034AA51D742A51001C9AA4 /* YXLiveViewController.m */; };
 		32034AAA1D742A51001C9AA4 /* YXPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32034AA81D742A51001C9AA4 /* YXPlayView.m */; };
-		32034AAC1D742C1F001C9AA4 /* libYXPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32034AAB1D742C1F001C9AA4 /* libYXPlayer.a */; };
+		320A3E161D7470AA003A6EF9 /* libYXPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A3E121D7470AA003A6EF9 /* libYXPlayer.a */; };
 		32F3B99D1D71324E0096F0CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F3B99C1D71324E0096F0CA /* main.m */; };
 		32F3B9A81D71324E0096F0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F3B9A71D71324E0096F0CA /* Assets.xcassets */; };
 		32F3B9AB1D71324E0096F0CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F3B9A91D71324E0096F0CA /* LaunchScreen.storyboard */; };
@@ -40,12 +40,14 @@
 
 /* Begin PBXFileReference section */
 		32034A991D7425F9001C9AA4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		32034A9C1D74265A001C9AA4 /* YXPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayer.h; sourceTree = "<group>"; };
 		32034AA41D742A51001C9AA4 /* YXLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLiveViewController.h; sourceTree = "<group>"; };
 		32034AA51D742A51001C9AA4 /* YXLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXLiveViewController.m; sourceTree = "<group>"; };
 		32034AA71D742A51001C9AA4 /* YXPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayView.h; sourceTree = "<group>"; };
 		32034AA81D742A51001C9AA4 /* YXPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPlayView.m; sourceTree = "<group>"; };
-		32034AAB1D742C1F001C9AA4 /* libYXPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYXPlayer.a; sourceTree = "<group>"; };
+		320A3E121D7470AA003A6EF9 /* libYXPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYXPlayer.a; sourceTree = "<group>"; };
+		320A3E131D7470AA003A6EF9 /* YXPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayer.h; sourceTree = "<group>"; };
+		320A3E141D7470AA003A6EF9 /* YXPlayerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerKit.h; sourceTree = "<group>"; };
+		320A3E151D7470AA003A6EF9 /* YXPlayerOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPlayerOption.h; sourceTree = "<group>"; };
 		32F3B9981D71324E0096F0CA /* YXPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F3B99C1D71324E0096F0CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32F3B9A71D71324E0096F0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5758FC0247368F43D057AB9F /* libPods-YXPlayerDemo.a in Frameworks */,
-				32034AAC1D742C1F001C9AA4 /* libYXPlayer.a in Frameworks */,
+				320A3E161D7470AA003A6EF9 /* libYXPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,23 +112,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		32034A9A1D74265A001C9AA4 /* YXPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				32034A9C1D74265A001C9AA4 /* YXPlayer.h */,
-				32034A9B1D74265A001C9AA4 /* include */,
-			);
-			path = YXPlayer;
-			sourceTree = "<group>";
-		};
-		32034A9B1D74265A001C9AA4 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				32034AAB1D742C1F001C9AA4 /* libYXPlayer.a */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		32034AA31D742A51001C9AA4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +128,25 @@
 				32034AA81D742A51001C9AA4 /* YXPlayView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		320A3E101D7470AA003A6EF9 /* YXPlayerKit */ = {
+			isa = PBXGroup;
+			children = (
+				320A3E111D7470AA003A6EF9 /* include */,
+				320A3E131D7470AA003A6EF9 /* YXPlayer.h */,
+				320A3E141D7470AA003A6EF9 /* YXPlayerKit.h */,
+				320A3E151D7470AA003A6EF9 /* YXPlayerOption.h */,
+			);
+			path = YXPlayerKit;
+			sourceTree = "<group>";
+		};
+		320A3E111D7470AA003A6EF9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				320A3E121D7470AA003A6EF9 /* libYXPlayer.a */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		32F3B98F1D71324E0096F0CA = {
@@ -171,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				32F3B9ED1D7133200096F0CA /* Classes */,
-				32034A9A1D74265A001C9AA4 /* YXPlayer */,
+				320A3E101D7470AA003A6EF9 /* YXPlayerKit */,
 				32F3B99B1D71324E0096F0CA /* Supporting Files */,
 			);
 			path = YXPlayerDemo;
@@ -558,6 +562,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayer/include",
+					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayerKit/include",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tv.yunxi.YXPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -580,6 +585,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayer/include",
+					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayerKit/include",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tv.yunxi.YXPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
