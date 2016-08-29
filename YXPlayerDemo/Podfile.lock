@@ -1,0 +1,23 @@
+PODS:
+  - HappyDNS (0.3.10)
+  - Masonry (1.0.1)
+  - pili-librtmp (1.0.3.1)
+  - PLPlayerKit (2.2.2):
+    - HappyDNS
+    - pili-librtmp (= 1.0.3.1)
+    - PLPlayerKit/precompiled (= 2.2.2)
+  - PLPlayerKit/precompiled (2.2.2):
+    - HappyDNS
+    - pili-librtmp (= 1.0.3.1)
+
+DEPENDENCIES:
+  - Masonry
+  - PLPlayerKit
+
+SPEC CHECKSUMS:
+  HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  pili-librtmp: 0adf2516f4b5958b3cb079a4c3d4f6a4a9f49ce9
+  PLPlayerKit: b5182ef942dce71678c9db07c2e1959df91e81cc
+
+COCOAPODS: 0.39.0
