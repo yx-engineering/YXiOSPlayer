@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/yx-engineering/YXiOSPlayer.git", :tag => "1.0.0" } 
   s.platform     = :ios, '8.1'
   s.requires_arc = true
-  s.public_header_files = "Pod/Library/YXPlayerKit/*.h"
-  s.source_files = 'Pod/Library/*'
+  s.public_header_files = "YXPlayer/YXPlayerKit/*.h"
+  s.source_files = 'YXPlayer/*'
   s.dependency "PLPlayerKit", "~> 2.0" 
 end
