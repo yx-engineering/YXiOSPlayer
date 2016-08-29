@@ -69,6 +69,10 @@ PLPlayerOption *option = [PLPlayerOption defaultOption];
 ```Objective-C
 // 初始化 PLPlayer
 self.player = [YXPlayer playerWithURL:self.URL option:option];
+// 设定企业APPId (必须) 
+self.player.yxAppId = @"企业APPId";
+// 设定直播Id (必须)
+self.player.yxStreamId = @"直播Id";
 
 // 设定代理 (optional)
 self.player.delegate = self;
