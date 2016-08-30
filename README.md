@@ -1,7 +1,7 @@
 
 # YXPlayerKit
 
-YXPlayerKit 是一个基于 PLPlayerKit 适用于 iOS 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
+YXPlayerKit 是一个适用于 “iOS 7.0” 以上的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
 
 
 功能特性
@@ -19,18 +19,15 @@ YXPlayerKit 是一个基于 PLPlayerKit 适用于 iOS 的音视频播放器 SDK�
 - [快速开始](#1-快速开始)
 	- [配置工程](#配置工程)
 	- [示例代码](#示例代码)
-- [关于 2.0 版本](#关于2.0版本)
-- [版本历史](#版本历史)
 
 ## 快速开始
 
 ### 配置工程
-- 将 YXPlayerKit的 .h 和 .a 文件拖到工程中
 
 - 配置你的 Podfile 文件，添加如下配置信息
 
 ```
-pod 'PLPlayerKit'
+pod 'YXPlayerKit', '~> 1.0.1'
 ```
 
 - 安装 CocoaPods 依赖
@@ -50,24 +47,28 @@ pod install
 在需要的地方添加
 
 ```Objective-C
-#import "YXPlayer.h"
+#import "YXPlayerKit.h"
 ```
 
-初始化 PLPlayerOption
+初始化 YXPlayerOption
 
 ```Objective-C
-// 初始化 PLPlayerOption 对象
-PLPlayerOption *option = [PLPlayerOption defaultOption];
+// 初始化 YXPlayerOption 对象
+YXPlayerOption *option = [YXPlayerOption defaultOption];
 
 // 更改需要修改的 option 属性键所对应的值
 [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
+[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL1BufferDuration];
+[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL2BufferDuration];
+[option setOptionValue:@(YES) forKey:PLPlayerOptionKeyVideoToolbox];
+[option setOptionValue:@(kPLLogInfo) forKey:PLPlayerOptionKeyLogLevel];
+[option setOptionValue:[QNDnsManager new] forKey:PLPlayerOptionKeyDNSManager];
 
 ```
-
-初始化 PLPlayer
+初始化 YXPlayer
 
 ```Objective-C
-// 初始化 PLPlayer
+// 初始化 YXPlayer
 self.player = [YXPlayer playerWithURL:self.URL option:option];
 // 设定企业APPId (必须) 
 self.player.yxAppId = @"企业APPId";
@@ -119,7 +120,7 @@ self.player.delegate = self;
 
 因为 iOS 的音频资源被设计为单例资源，所以如果在 player 中做的任何修改，对外都可能造成影响，并且带来不能预估的各种问题。
 
-为了应对这一情况，PLPlayerKit 采取的方式是检查是否可以播放及是否可以进入后台，而在内部不做任何设置。具体是通过扩展 `AVAudioSession` 来做到的，提供了两个方法，如下：
+为了应对这一情况，YXPlayerKit 采取的方式是检查是否可以播放及是否可以进入后台，而在内部不做任何设置。具体是通过扩展 `AVAudioSession` 来做到的，提供了两个方法，如下：
 
 ```Objective-C
 /*!
