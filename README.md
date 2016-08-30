@@ -1,7 +1,7 @@
 
 # YXPlayerKit
 
-YXPlayerKit 是一个基于 PLPlayerKit 适用于 iOS 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
+YXPlayerKit 是一个适用于 iOS 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
 
 
 功能特性
@@ -25,12 +25,11 @@ YXPlayerKit 是一个基于 PLPlayerKit 适用于 iOS 的音视频播放器 SDK�
 ## 快速开始
 
 ### 配置工程
-- 将 YXPlayerKit的 .h 和 .a 文件拖到工程中
 
 - 配置你的 Podfile 文件，添加如下配置信息
 
 ```
-pod 'PLPlayerKit'
+pod 'YXPlayerKit', '~> 1.0.1'
 ```
 
 - 安装 CocoaPods 依赖
@@ -50,24 +49,23 @@ pod install
 在需要的地方添加
 
 ```Objective-C
-#import "YXPlayer.h"
+#import "YXPlayerKit.h"
 ```
 
-初始化 PLPlayerOption
+初始化 YXPlayerOption
 
 ```Objective-C
 // 初始化 PLPlayerOption 对象
-PLPlayerOption *option = [PLPlayerOption defaultOption];
+YXPlayerOption *option = [YXPlayerOption defaultOption];
 
 // 更改需要修改的 option 属性键所对应的值
 [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
 
 ```
-
-初始化 PLPlayer
+初始化 YXPlayer
 
 ```Objective-C
-// 初始化 PLPlayer
+// 初始化 YXPlayer
 self.player = [YXPlayer playerWithURL:self.URL option:option];
 // 设定企业APPId (必须) 
 self.player.yxAppId = @"企业APPId";
