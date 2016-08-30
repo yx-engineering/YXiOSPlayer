@@ -70,7 +70,7 @@ extern NSString * const YXPlayerOptionKeyLogLevel;
  
  @since v2.2.1
  */
-
+extern NSString * const YXPlayerOptionKeyDNSManager;
 @interface YXPlayerOption : PLPlayerOption
 
 @end
