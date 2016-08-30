@@ -53,11 +53,16 @@ pod install
 初始化 YXPlayerOption
 
 ```Objective-C
-// 初始化 PLPlayerOption 对象
+// 初始化 YXPlayerOption 对象
 YXPlayerOption *option = [YXPlayerOption defaultOption];
 
 // 更改需要修改的 option 属性键所对应的值
 [option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
+[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL1BufferDuration];
+[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL2BufferDuration];
+[option setOptionValue:@(YES) forKey:PLPlayerOptionKeyVideoToolbox];
+[option setOptionValue:@(kPLLogInfo) forKey:PLPlayerOptionKeyLogLevel];
+[option setOptionValue:[QNDnsManager new] forKey:PLPlayerOptionKeyDNSManager];
 
 ```
 初始化 YXPlayer
