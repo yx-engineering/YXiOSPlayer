@@ -29,7 +29,6 @@
     [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
-    
     return self;
 }
 
