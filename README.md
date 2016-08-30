@@ -1,7 +1,7 @@
 
 # YXPlayerKit
 
-YXPlayerKit 是一个适用于 “iOS 7.0”以上 的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
+YXPlayerKit 是一个适用于 “iOS 7.0” 以上的音视频播放器 SDK，可高度定制化和二次开发，特色是支持 RTMP 和 HLS 直播流媒体播放。
 
 
 功能特性
