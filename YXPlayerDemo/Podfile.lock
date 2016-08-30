@@ -9,21 +9,21 @@ PODS:
   - PLPlayerKit/precompiled (2.2.4):
     - HappyDNS (~> 0.3.10)
     - pili-librtmp (= 1.0.4)
-  - YXPlayerKit (1.0.2):
+  - YXPlayerKit (1.0.3):
     - PLPlayerKit
-    - YXPlayerKit/precompiled (= 1.0.2)
-  - YXPlayerKit/precompiled (1.0.2):
+    - YXPlayerKit/precompiled (= 1.0.3)
+  - YXPlayerKit/precompiled (1.0.3):
     - PLPlayerKit
 
 DEPENDENCIES:
   - Masonry
-  - YXPlayerKit (~> 1.0.2)
+  - YXPlayerKit (~> 1.0.3)
 
 SPEC CHECKSUMS:
   HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   pili-librtmp: bc768bc3971edad732fd5e66f0ee991fa1a0a257
   PLPlayerKit: 30e419fa90e84df34922e6dd5d5833d7e4348bf4
-  YXPlayerKit: b98359c3426672f913fc4c39286d7bce002e6a8d
+  YXPlayerKit: 9868dc7184b06abfb0ee133d75d1d4cd613baf5a
 
 COCOAPODS: 0.39.0
