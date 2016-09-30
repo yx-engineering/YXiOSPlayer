@@ -18,8 +18,9 @@
 #define Comments_List @"comments-list"
 #define Save_Comment @"save-comment"
 
-#define AccessKey @"cDEQABxCwnxG3c0WNhqP7SuoVoKXL2V2" //填写自己公司的
-#define SecretKey @"WDiV33zZSKMI6uBLSzn2AeVknCYGY8GS" //填写自己公司的
+//TODO:
+#define AccessKey @"" //填写自己公司的
+#define SecretKey @"" //填写自己公司的
 
 
 #define YXWildDogLivestream @"https://wild-monkey-73114.wilddogio.com/livestream/"

@@ -32,7 +32,8 @@
     NSString *playUrlStr = @"rtmp://live.hkstv.hk.lxdns.com/live/hks";
     self.player = [YXPlayer playerLiveWithURL:[NSURL URLWithString:playUrlStr] option:[YXPlayerOption defaultOption]];
     self.player.delegate = self;
-    self.player.yxAppId = @"gyJgGBJFQhTeRHlE";//@"企业APPID";
+    //TODO:
+    self.player.yxAppId = @"";//@"填写自己企业的APPID";
     self.player.yxStreamId = liveModel.streamId;
     [self addSubview:self.player.playerView];
     [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
