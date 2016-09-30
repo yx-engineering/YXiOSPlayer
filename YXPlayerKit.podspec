@@ -18,14 +18,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true 
   s.source_files = 'YXPlayer/**/*.{h,m}'
-  s.dependency "PLPlayerKit" 
-  
-  s.default_subspec = "precompiled"
+  s.vendored_libraries   = 'YXPlayer/lib/*.a'
 
-  s.subspec "precompiled" do |ss|
-    ss.preserve_paths   = "YXPlayer/**/*.{h,m}", 'YXPlayer/lib/*.a'
-    ss.vendored_libraries   = 'YXPlayer/lib/*.a'
-    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/YXPlayerKit/lib/include" }
-  end 
+  s.dependency "PLPlayerKit" 
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/YXPlayerKit/lib/include" } 
 
 end
