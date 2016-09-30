@@ -27,7 +27,7 @@ YXPlayerKit 是一个适用于 “iOS 7.0” 以上的音视频播放器 SDK，�
 - 配置你的 Podfile 文件，添加如下配置信息
 
 ```
-pod 'YXPlayerKit', '~> 1.0.1'
+pod 'YXPlayerKit'
 ```
 
 - 安装 CocoaPods 依赖
@@ -57,12 +57,12 @@ pod install
 YXPlayerOption *option = [YXPlayerOption defaultOption];
 
 // 更改需要修改的 option 属性键所对应的值
-[option setOptionValue:@15 forKey:PLPlayerOptionKeyTimeoutIntervalForMediaPackets];
-[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL1BufferDuration];
-[option setOptionValue:@1000 forKey:PLPlayerOptionKeyMaxL2BufferDuration];
-[option setOptionValue:@(YES) forKey:PLPlayerOptionKeyVideoToolbox];
-[option setOptionValue:@(kPLLogInfo) forKey:PLPlayerOptionKeyLogLevel];
-[option setOptionValue:[QNDnsManager new] forKey:PLPlayerOptionKeyDNSManager];
+[option setOptionValue:@15 forKey:YXPlayerOptionKeyTimeoutIntervalForMediaPackets];
+[option setOptionValue:@1000 forKey:YXPlayerOptionKeyMaxL1BufferDuration];
+[option setOptionValue:@1000 forKey:YXPlayerOptionKeyMaxL2BufferDuration];
+[option setOptionValue:@(YES) forKey:YXPlayerOptionKeyVideoToolbox];
+[option setOptionValue:@(kPLLogInfo) forKey:YXPlayerOptionKeyLogLevel];
+[option setOptionValue:[QNDnsManager new] forKey:YXPlayerOptionKeyDNSManager];
 
 ```
 初始化 YXPlayer
