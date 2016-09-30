@@ -8,8 +8,8 @@
 
 #ifndef YXGlobalDefine_h
 #define YXGlobalDefine_h
-#define YunXiService @"http://b.test.yunxi.tv/developer/api/" //测试服务器
 
+#define YunXiService @"http://b.test.yunxi.tv/developer/api/" //测试服务器
 //#define YunXiService @"http://b.yunxi.tv/developer/api/" //正式服务器
 
 #define Actitity_List @"activity-list"
