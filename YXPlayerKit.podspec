@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.default_subspec = "precompiled"
 
   s.subspec "precompiled" do |ss|
-    ss.preserve_paths   = "YXPlayer/YXPlayerKit/*.h", 'YXPlayer/lib/*.a'
+    ss.preserve_paths   = "YXPlayer/**/*.{h,m}", 'YXPlayer/lib/*.a'
     ss.vendored_libraries   = 'YXPlayer/lib/*.a'
     ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/YXPlayerKit/lib/include" }
   end 
