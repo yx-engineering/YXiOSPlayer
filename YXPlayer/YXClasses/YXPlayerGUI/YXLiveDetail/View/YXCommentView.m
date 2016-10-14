@@ -21,7 +21,7 @@
 @implementation YXCommentView
 
 - (instancetype)init {
-    //初始化，frame不为 CGRectZero，就不会有报约束冲突了
+    //初始化，frame不为 CGRectZero，就不会报约束冲突了
     self = [super initWithFrame:CGRectMake(0, 0, 100, 100)];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
@@ -103,22 +103,15 @@
 #pragma mark BottomInputViewDelegate
 
 - (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message {
-    
-//    NSString *username = [NSString stringWithFormat:@"观众%d",arc4random_uniform(8)];
+    //TODO:在这里传入用户名，用户ID，用户头像
     NSString *username = [NSString stringWithFormat:@"观众%d",2];
-    [self sendRequest:Save_Comment para:@{@"accessKey":AccessKey,@"lsId":self.streamId,@"userId":@"0002-sdk",@"username":username,@"avatar":@"http://scimg.jb51.net/allimg/160812/103-160Q2095G5220.jpg",@"content":message}];
-  /*
-   test
-//    NSString *number = [NSString stringWithFormat:@"%ld",self.commentTableView.dataArr.count + 1];
-//    NSTimeInterval time = [[[NSDate alloc] init] timeIntervalSince1970];
-//    NSString *create = [NSString stringWithFormat:@"%.0f",time];
-//    NSDictionary *dic = @{@"username":username,@"content":message,@"createdAt":create,@"floor":number};
-//    
-//    [self.commentTableView.dataArr insertObject:[YXCommentModel commentModelWithDic:dic] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//
-//    [self.commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-//    [self.commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-   */
+    NSString *userId = @"0002-sdk";
+    NSString *avatar = @"http://scimg.jb51.net/allimg/160812/103-160Q2095G5220.jpg";//头像图片地址
+    [self sendRequest:Save_Comment
+                 para:@{@"accessKey":YXAccessKey,
+                        @"lsId":self.streamId,
+                        @"userId":userId,
+                        @"username":username,
+                        @"avatar":avatar,@"content":message}];
 }
 @end

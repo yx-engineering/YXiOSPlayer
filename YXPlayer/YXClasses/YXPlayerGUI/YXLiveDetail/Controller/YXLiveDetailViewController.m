@@ -13,27 +13,34 @@
 #import "YXTitleBar.h"
 #import "YXCommentTableView.h"
 #import "YXWebView.h"
+#import "YXCalculateTimeLabel.h"
 
 #import "YXLiveModel.h"
+#import "YXLiveStream.h"
 #import "YXNetWorking.h"
 #import "YXModule.h"
 #import "YXCommentModel.h"
 #import "UIColor+YXExtension.h"
 #import "WilddogSync.h"
 
+#import "UIImage+YXExtension.h"
 
 @interface YXLiveDetailViewController ()
 
 @property (nonatomic, weak) YXPlayView *playView;
+@property (nonatomic, weak) UIView *playViewBottom;
+@property (nonatomic, weak) UIButton *controlScreeBtn; //控制屏幕旋转
+@property (nonatomic, weak) UISlider *slider;
+@property (nonatomic, weak) YXCalculateTimeLabel *timeLab;
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, weak) YXTitleBar *titleBar;
 @property (nonatomic, weak) YXCommentView *commentView;
 @property (nonatomic, weak) UIButton *playBtn; //播放和暂停
-@property (nonatomic, weak) UIButton *controlScreeBtn; //控制屏幕旋转
 
 @property (nonatomic, copy) NSArray<YXModule *> *modules; //模块
 @property (nonatomic, copy) NSArray<NSString *> *moduleTitles;
 @property (nonatomic, strong) UIColor *themColor; //模块按钮颜色
-@property (nonatomic, copy) NSString *streamId;
+@property (nonatomic, strong) YXLiveStream *liveStream;
 @property (nonatomic, assign) NSInteger page; //评论的page
 @property (nonatomic, strong) Wilddog *wilddogRef;
 @property (nonatomic, assign) WilddogHandle wilddogHandle;
@@ -64,7 +71,15 @@
         switch (status) {
             case PLPlayerStatusPlaying:
                 strongSelf.playBtn.selected = YES;
+                if (strongSelf.liveModel.streamStatus == 2 && strongSelf.playView.totalDuration.timescale != 0 && strongSelf.slider.maximumValue < 0.2) {
+                    float maxValue = strongSelf.playView.totalDuration.value / strongSelf.playView.totalDuration.timescale;
+                    strongSelf.slider.maximumValue = maxValue;
+                    strongSelf.timeLab.totalTime = strongSelf.slider.maximumValue;
+                }
                 break;
+            case PLPlayerStatusStopped:
+                strongSelf.slider.value = strongSelf.slider.maximumValue;
+                strongSelf.timeLab.currentTime = strongSelf.slider.value;
             default:
                 strongSelf.playBtn.selected = NO;
                 break;
@@ -81,12 +96,9 @@
     [self.view addSubview:playBtn];
     self.playBtn = playBtn;
     
-    UIButton *controlScreeBtn = [[UIButton alloc] init];
-    [controlScreeBtn setImage:[UIImage imageNamed:@"detail_fullscreen_btn_normal"] forState:UIControlStateNormal];
-    [controlScreeBtn addTarget:self action:@selector(didClickControllScreenBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:controlScreeBtn];
-    self.controlScreeBtn = controlScreeBtn;
-    
+    UIView *playBottomView = [self createPlayViewBottom];
+    [self.view addSubview:playBottomView];
+    self.playViewBottom = playBottomView;
 }
 
 - (void)addConstraintsForSubviews {
@@ -100,19 +112,37 @@
         make.size.mas_equalTo(CGSizeMake(65, 65));
     }];
     
+    [self.playViewBottom mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.playView);
+        make.height.equalTo(@33);
+    }];
+    
     [self.controlScreeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-10);
-        make.bottom.equalTo(self.playView).offset(-10);
-        make.size.mas_equalTo(CGSizeMake(33, 33));
+        make.top.right.bottom.equalTo(self.playViewBottom);
+        make.width.equalTo(@33);
+    }];
+    
+    [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.playViewBottom).offset(6);
+        make.left.equalTo(self.playViewBottom).offset(10);
+        make.right.equalTo(self.controlScreeBtn.mas_left).offset(-10);
+        make.height.equalTo(@10);
+    }];
+    [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.slider.mas_bottom).offset(2);
+        make.left.equalTo(self.slider);
+        make.height.equalTo(@14);
+        make.width.equalTo(@120);
     }];
 }
 
 #pragma mark setter
 - (void)setLiveModel:(YXLiveModel *)liveModel {
     _liveModel = liveModel;
-    [self sendRequest:Livestream_Info para:@{@"accessKey":AccessKey,
+    [self sendRequest:Livestream_Info para:@{@"accessKey":YXAccessKey,
                                              @"activityId":liveModel.liveId}];
-}
+    }
 
 - (void)setModules:(NSArray<YXModule *> *)modules {
     _modules = modules;
@@ -124,10 +154,11 @@
         YXLiveDetailViewController *strongSelf = weakSelf;
         strongSelf.page += 1;
         NSString *page = [NSString stringWithFormat:@"%ld",strongSelf.page];
-        [strongSelf sendRequest:Comments_List para:@{@"accessKey":AccessKey,
-                                               @"lsId":strongSelf.streamId,
-                                               @"page":page}];
-
+        [strongSelf sendRequest:Comments_List
+                           para:@{@"accessKey":YXAccessKey,
+                                  @"lsId":strongSelf.liveStream.ID,
+                                  @"page":page}];
+        
     };
     self.commentView = commentView;
     NSMutableArray *views = [NSMutableArray arrayWithCapacity:self.moduleTitles.count];
@@ -151,11 +182,20 @@
     }];
 }
 
-- (void)setStreamId:(NSString *)streamId {
-    _streamId = streamId;
-    self.commentView.streamId = streamId;
-    self.liveModel.streamId = streamId;
+- (void)setLiveStream:(YXLiveStream *)liveStream {
+    _liveStream = liveStream;
+    self.commentView.streamId = liveStream.ID;
+    self.liveModel.liveStream = liveStream;
     self.playView.liveModel = self.liveModel;
+    if (liveStream.status == 1) {
+        [self showMessage:@"即将观看直播"];
+    } else if(liveStream.status == 2) {
+        [self showMessage:@"即将观看回播"];
+        [self createTimer];
+    } else {
+        [self showMessage:@"直播还未开始"];
+    }
+    self.didUpdateStreamStatus(liveStream.status);
 }
 
 - (void)setThemColor:(UIColor *)themColor {
@@ -192,13 +232,14 @@
                 unsigned long hex = strtoul([themeColor UTF8String], 0, 0);
                 self.themColor = [UIColor hexColor:hex];
             }
-            self.streamId = data[@"livestream"][@"id"];
+            self.liveStream = [YXLiveStream liveStreamWithDic:data[@"livestream"]];
             //获取评论
             self.page = 1;
             NSString *page = [NSString stringWithFormat:@"%ld",self.page];
-            [self sendRequest:Comments_List para:@{@"accessKey":AccessKey,
-                                                   @"lsId":self.streamId,
-                                                   @"page":page}];
+            [self sendRequest:Comments_List
+                         para:@{@"accessKey":YXAccessKey,
+                                @"lsId":self.liveStream.ID,
+                                @"page":page}];
             
         } else if ([urlStr isEqualToString:Comments_List]) {
             if (self.page > 1) {
@@ -228,13 +269,39 @@
     }];
 }
 
+- (UIView *)createPlayViewBottom {
+    UIView *playViewBottom = [[UIView alloc] init];
+    playViewBottom.backgroundColor = [UIColor colorWithWhite:0 alpha:0.9];
+    UISlider *slider = [[UISlider alloc] init];
+    [playViewBottom addSubview:slider];
+    
+    UIImage * thumbImage = [[UIImage imageWithColor:[UIColor redColor] Size:CGSizeMake(12, 12)] cutCircleImage];
+    slider.maximumValue = 0.1;
+    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
+    [slider addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
+    [slider addTarget:self action:@selector(timeChangedFinish:) forControlEvents:UIControlEventTouchUpInside];
+    self.slider = slider;
+    
+    YXCalculateTimeLabel *timeLab = [[YXCalculateTimeLabel alloc] init];
+    timeLab.totalTime = 0;
+    timeLab.currentTime = 0;
+    [playViewBottom addSubview:timeLab];
+    self.timeLab = timeLab;
+    
+    UIButton *controlScreeBtn = [[UIButton alloc] init];
+    [controlScreeBtn setImage:[UIImage imageNamed:@"detail_fullscreen_btn_normal"] forState:UIControlStateNormal];
+    [controlScreeBtn addTarget:self action:@selector(didClickControllScreenBtn) forControlEvents:UIControlEventTouchUpInside];
+    [playViewBottom addSubview:controlScreeBtn];
+    self.controlScreeBtn = controlScreeBtn;
+    return playViewBottom;
+}
 
 - (void)createWildDog {
-    if (self.wilddogRef || !self.streamId) {
+    if (self.wilddogRef || !self.liveStream) {
         return ;
     }
-    NSString *wildDogUrl = [NSString stringWithFormat:@"%@%@/comments",YXWildDogLivestream,self.streamId];
-    NSLog(@"wildDogUrl: %@",wildDogUrl);
+    NSString *wildDogUrl = [NSString stringWithFormat:@"%@%@/comments",YXWildDogLivestream,self.liveStream.ID];
+    NSLog(@"\n wildDogUrl: %@",wildDogUrl);
     
     self.wilddogRef = [[Wilddog alloc] initWithUrl:wildDogUrl];
     __weak typeof(self) weakSelf = self;
@@ -254,19 +321,35 @@
             [strongSelf.commentView.commentTableView.dataArr insertObject:commentModel atIndex:0];
             [strongSelf.commentView.commentTableView  insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]  withRowAnimation:UITableViewRowAnimationNone];
         }
-        //                NSLog(@"wilddog: %@",dic);
     }];
     self.wilddogRemoveHandle = [self.wilddogRef observeEventType:WEventTypeChildRemoved withBlock:^(WDataSnapshot * _Nonnull snapshot) {
-//        YXLiveDetailViewController *strongSelf = weakSelf;
-        NSLog(@"删除：%@",snapshot.value);
+        //        YXLiveDetailViewController *strongSelf = weakSelf;
+        NSLog(@"\n 删除：%@",snapshot.value);
     }];
+}
+
+- (void)createTimer {
+    __weak typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        YXLiveDetailViewController *strongSelf = weakSelf;
+        if (strongSelf.playView.currentTime.timescale != 0) {
+            strongSelf.slider.value = strongSelf.playView.currentTime.value / strongSelf.playView.currentTime.timescale;
+        }
+        strongSelf.timeLab.currentTime = strongSelf.slider.value;
+    }];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)dealTimer {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 #pragma mark target
 - (void)didTapPlayView {
     [self.commentView resignTextviewFirstResponder];
     self.playBtn.hidden = !self.playBtn.hidden;
-    self.controlScreeBtn.hidden = !self.controlScreeBtn.hidden;
+    self.playViewBottom.hidden = !self.playViewBottom.hidden;
 }
 
 - (void)didClickPlayBtn:(UIButton *)sender {
@@ -298,6 +381,27 @@
     }
 }
 
+- (void)timeChanged:(UISlider *)sender {
+    if (self.liveModel.streamStatus == 2) {
+        if (self.timer) {
+            [self dealTimer];
+        }
+        self.timeLab.currentTime = sender.value;
+    }
+}
+
+- (void)timeChangedFinish:(UISlider *)sender {
+    if (self.liveModel.streamStatus == 2) {
+        CMTime time = CMTimeMake(sender.value, 1);
+        [self.playView seekTo:time];
+        if (!self.timer) {
+            [self createTimer];
+        }
+    } else {
+        sender.value = 0;
+    }
+}
+
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection
               withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
 {
@@ -320,6 +424,23 @@
     } completion:nil];
 }
 
+- (void) showMessage:(NSString *)message {
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    lab.layer.cornerRadius = 5;
+    lab.layer.masksToBounds = YES;
+    lab.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+    lab.text = message;
+    lab.textAlignment = NSTextAlignmentCenter;
+    lab.textColor = [UIColor whiteColor];
+    lab.numberOfLines = 0;
+    lab.center = [UIApplication sharedApplication].keyWindow.center;
+    [[UIApplication sharedApplication].keyWindow addSubview:lab];
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC);
+    dispatch_after(time, dispatch_get_main_queue(), ^{
+        [lab removeFromSuperview];
+    });
+}
+
 - (void)dealloc
 {
     if (self.wilddogRef) {
@@ -327,7 +448,8 @@
         [self.wilddogRef removeObserverWithHandle:self.wilddogRemoveHandle];
         self.wilddogRef = nil;
     }
-    NSLog(@"YXLiveDetailViewController 销毁");
+    [self dealTimer];
+    NSLog(@"\n YXLiveDetailViewController 销毁");
 }
 
 

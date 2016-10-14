@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "YXLiveViewController.h"
+#import "YXNavigationController.h"
+#import "YXEnterViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,8 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    YXLiveViewController *yxLiveVC = [[YXLiveViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:yxLiveVC];
+    YXEnterViewController *enterVC = [[YXEnterViewController alloc] init];
+    YXNavigationController *nav = [[YXNavigationController alloc] initWithRootViewController:enterVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

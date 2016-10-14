@@ -7,9 +7,11 @@
 //
 
 #import "YXLiveViewController.h"
-#import "YXPlayView.h"
+#import "YXPlayerKit.h"
+#import <AVFoundation/AVFoundation.h>
+
 @interface YXLiveViewController ()
-@property (nonatomic, weak) YXPlayView *playView;
+@property (nonatomic, strong) YXPlayer *player;
 @property (nonatomic, weak) UIButton *playBtn;
 @end
 
@@ -17,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //手机静音时，也有声音
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     self.title = @"云犀直播";
     self.edgesForExtendedLayout = UIRectEdgeBottom;
     [self addSubViews];
@@ -25,32 +29,37 @@
 }
 
 - (void) addSubViews {
-    YXPlayView *playView = [[YXPlayView alloc] init];
-    playView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:playView];
-    self.playView = playView;
+   
+    self.player = [YXPlayer playerWithURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"] option:[YXPlayerOption defaultOption]];
+    self.player.yxAppId = @"企业APPID";
+    self.player.yxStreamId = @"直播ID";
+    [self.view addSubview:self.player.playerView];
+    
     UIButton *playBtn = [[UIButton alloc] init];
     [playBtn setImage:[UIImage imageNamed:@"detail_play_icon"] forState:UIControlStateNormal];
     [playBtn setImage:[UIImage imageNamed:@"detail_pause_icon"] forState:UIControlStateSelected];
     [playBtn addTarget:self action:@selector(didClickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playBtn];
     self.playBtn = playBtn;
+    
+    playBtn.selected = true;
+    [self.player play];
 }
 
 - (void) addConstraintsForSubviews {
-    [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.player.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
-        make.height.equalTo(@200);
+        make.height.equalTo(self.player.playerView.mas_width).multipliedBy(0.56);
     }];
     
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.playView);
+        make.center.equalTo(self.player.playerView);
         make.height.with.equalTo(@100);
     }];
 }
 - (void)didClickPlayBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
-    self.playView.play = sender.selected;
+    sender.selected ? [self.player play] : [self.player pause];
 }
 
 
@@ -61,22 +70,25 @@
                  withTransitionCoordinator:coordinator];
     [coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext> context) {
         if (newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-            [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            [self.player.playerView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
             }];
-            
+            self.navigationController.navigationBar.hidden = YES;
         } else {
-            [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            [self.player.playerView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.left.right.equalTo(self.view);
-                make.height.equalTo(@200);
+                make.height.equalTo(self.player.playerView.mas_width).multipliedBy(0.56);
             }];
+            self.navigationController.navigationBar.hidden = false;
         }
         [self.view setNeedsLayout];
     } completion:nil];
 }
 
-
-
+- (void)dealloc {
+    NSLog(@"YXLiveViewController 销毁");
+//    [self.player removeObserver:self.player forKeyPath:@"status"];
+}
 
 
 @end

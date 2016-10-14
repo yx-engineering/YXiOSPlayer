@@ -6,6 +6,9 @@
 target 'YXPlayerDemo' do
 pod 'YXPlayerKit', '~> 1.0.3'
 pod 'Masonry'
+pod 'SDWebImage'
+pod 'MJRefresh', '3.1.0'
+pod 'Wilddog',   '2.0.0'
 end
 
 target 'YXPlayerDemoTests' do
