@@ -265,8 +265,8 @@
 		32EBBFD31DB0E2D6006C13AE /* YXPlayerGUI */ = {
 			isa = PBXGroup;
 			children = (
-				32EBBFD41DB0E2D6006C13AE /* YXLiveDetail */,
 				32EBBFF21DB0E2D7006C13AE /* YXLiveList */,
+				32EBBFD41DB0E2D6006C13AE /* YXLiveDetail */,
 				32EBC0001DB0E2D7006C13AE /* YXNavigationController.h */,
 				32EBC0011DB0E2D7006C13AE /* YXNavigationController.m */,
 			);
