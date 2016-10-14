@@ -19,8 +19,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true 
   s.source_files = 'YXPlayer/YXPlayerKit/*.h'
   s.vendored_libraries   = 'YXPlayer/lib/*.a'
-
   s.dependency "PLPlayerKit" 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/YXPlayerKit/lib/include" } 
-
+  
 end
