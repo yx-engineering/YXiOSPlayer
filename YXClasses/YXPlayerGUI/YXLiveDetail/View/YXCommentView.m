@@ -104,9 +104,9 @@
 
 - (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message {
     //TODO:在这里传入用户名，用户ID，用户头像
-    NSString *username = [NSString stringWithFormat:@"观众%d",2];
-    NSString *userId = @"0002-sdk";
-    NSString *avatar = @"http://scimg.jb51.net/allimg/160812/103-160Q2095G5220.jpg";//头像图片地址
+    NSString *username = @"";
+    NSString *userId = @"";//用户ID后添加“-sdk”，如：@"0001-sdk"
+    NSString *avatar = @"";//头像图片地址
     [self sendRequest:Save_Comment
                  para:@{@"accessKey":YXAccessKey,
                         @"lsId":self.streamId,

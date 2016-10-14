@@ -9,8 +9,8 @@
 #ifndef YXGlobalDefine_h
 #define YXGlobalDefine_h
 
-#define YunXiService @"http://b.test.yunxi.tv/developer/api/" //测试服务器
-//#define YunXiService @"http://b.yunxi.tv/developer/api/" //正式服务器
+//#define YunXiService @"http://b.test.yunxi.tv/developer/api/" //测试服务器
+#define YunXiService @"http://b.yunxi.tv/developer/api/" //正式服务器
 
 #define Actitity_List @"activity-list" //获取活动
 #define Activity_Info @"activity-info"
@@ -23,7 +23,9 @@
 #define YXAccessKey @"" //填写自己公司的
 #define YXSecretKey @"" //填写自己公司的
 
-#define YXWildDogLivestream @"https://wild-monkey-73114.wilddogio.com/livestream/"
+
+#define YXWildDogLivestream [YunXiService containsString:@"test"] ?@"https://wild-monkey-73114.wilddogio.com/livestream/" : @"https://yunxi.wilddogio.com/livestream/"
+
 
 
 #endif /* YXGlobalDefine_h */

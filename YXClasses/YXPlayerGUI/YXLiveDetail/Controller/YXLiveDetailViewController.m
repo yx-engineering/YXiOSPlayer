@@ -24,6 +24,7 @@
 #import "WilddogSync.h"
 
 #import "UIImage+YXExtension.h"
+#import "NSTimer+YXExtension.h"
 
 @interface YXLiveDetailViewController ()
 
@@ -53,6 +54,7 @@
     self = [super init];
     [self addSubviews];
     [self addConstraintsForSubviews];
+    
     return self;
 }
 
@@ -330,13 +332,13 @@
 
 - (void)createTimer {
     __weak typeof(self) weakSelf = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+    self.timer = [NSTimer yx_ScheduledTimerWithTimeInterval:1 block:^{
         YXLiveDetailViewController *strongSelf = weakSelf;
         if (strongSelf.playView.currentTime.timescale != 0) {
             strongSelf.slider.value = strongSelf.playView.currentTime.value / strongSelf.playView.currentTime.timescale;
         }
         strongSelf.timeLab.currentTime = strongSelf.slider.value;
-    }];
+    } repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
