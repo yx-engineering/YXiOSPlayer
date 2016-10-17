@@ -87,7 +87,6 @@
 
 - (void)dealloc {
     NSLog(@"YXLiveViewController 销毁");
-//    [self.player removeObserver:self.player forKeyPath:@"status"];
 }
 
 
