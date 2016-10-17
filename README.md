@@ -146,9 +146,9 @@ self.player.delegate = self;
 ```
 YXPlayerKit 只具备播放等一系列功能，如果需要使用云犀默认的直播列表界面，以及播放界面，
 请到 "https://github.com/yx-engineering/YXiOSPlayer.git" 自行下载。然后将 YXClasses 拖入到自己的工程中。
-然后找到"YXClasses/YXSource/YXGlobalDefine.h"文（可通过搜索 “//YXTODO:”，快速找到对应的位置，进行内容填写），
-该文件中有三个空字符串的宏定义 YXBusinessAppId、YXAccessKey、YXSecretKey，将自己企业对应的 AppID、AccessKey、SecretKey填写进去。
-再到 "YXClasses/YXPlayerGUI/YXLiveDetail/View/YXCommentView.m”文件中的
+然后找到"YXClasses/YXSource/YXGlobalDefine.h"文件（可通过搜索 “//YXTODO:”，快速找到对应的位置，进行内容填写），
+该文件中有三个空字符串的宏定义 YXBusinessAppId、YXAccessKey、YXSecretKey，将自己企业对应的 AppID、AccessKey、SecretKey
+填写进去。再到 "YXClasses/YXPlayerGUI/YXLiveDetail/View/YXCommentView.m”文件中的
 - (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message { 
 
 }
