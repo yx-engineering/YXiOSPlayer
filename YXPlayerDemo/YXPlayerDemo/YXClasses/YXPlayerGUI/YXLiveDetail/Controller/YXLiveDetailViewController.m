@@ -165,7 +165,7 @@
     self.commentView = commentView;
     NSMutableArray *views = [NSMutableArray arrayWithCapacity:self.moduleTitles.count];
     [views addObject:commentView];
-    for (int i = 1; i < self.moduleTitles.count; ++i) {
+    for (int i = 1; i < self.modules.count; ++i) {
         YXWebView *view = [YXWebView new];
         view.backgroundColor = [UIColor whiteColor];
         if (modules[i].editorValue) {
@@ -228,12 +228,17 @@
                 }
                 self.moduleTitles = titles;
                 self.modules = modules;
-                
                 NSString *themeColor = templateData[@"themeColor"];
                 themeColor = [themeColor stringByReplacingOccurrencesOfString:@"#" withString:@"0x"];
                 unsigned long hex = strtoul([themeColor UTF8String], 0, 0);
                 self.themColor = [UIColor hexColor:hex];
             }
+            if (self.moduleTitles.count == 0) {
+                YXModule *module = [YXModule moduleWithDic:@{@"name":@"评论",@"type":@"comment"}];
+                self.moduleTitles = @[module.name];
+                self.modules = @[module];
+            }
+
             self.liveStream = [YXLiveStream liveStreamWithDic:data[@"livestream"]];
             //获取评论
             self.page = 1;

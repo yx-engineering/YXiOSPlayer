@@ -19,10 +19,9 @@
 #define Save_Comment @"save-comment" //上传评论
 
 //TODO:
-#define YXBusinessAppId @""//@"企业APPID"
-#define YXAccessKey @"" //填写自己公司的
-#define YXSecretKey @"" //填写自己公司的
-
+//#define YXBusinessAppId @""//@"企业APPID"
+//#define YXAccessKey @"" //填写自己公司的
+//#define YXSecretKey @"" //填写自己公司的
 
 #define YXWildDogLivestream [YunXiService containsString:@"test"] ?@"https://wild-monkey-73114.wilddogio.com/livestream/" : @"https://yunxi.wilddogio.com/livestream/"
 

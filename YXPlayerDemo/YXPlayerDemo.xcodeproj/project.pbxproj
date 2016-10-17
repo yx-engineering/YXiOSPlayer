@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1296749474A25DBEAB0FFBA3 /* Pods_YXPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3963CD1011F2F076621276 /* Pods_YXPlayerDemo.framework */; };
 		32EBBFC41DB0E2C2006C13AE /* YXEnterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC11DB0E2C2006C13AE /* YXEnterViewController.m */; };
 		32EBBFC51DB0E2C2006C13AE /* YXLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC31DB0E2C2006C13AE /* YXLiveViewController.m */; };
 		32EBC0111DB0E2D7006C13AE /* NSString+YXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC91DB0E2D6006C13AE /* NSString+YXExtension.m */; };
@@ -54,7 +55,8 @@
 		32F3B9E21D7132990096F0CA /* detail_pause_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F3B9E01D7132990096F0CA /* detail_pause_icon@3x.png */; };
 		32F3B9E31D7132990096F0CA /* detail_play_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F3B9E11D7132990096F0CA /* detail_play_icon@3x.png */; };
 		32F3B9FD1D7134000096F0CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F3B9FC1D7134000096F0CA /* AppDelegate.m */; };
-		573BBB11F4540AFB4DE8EE0F /* Pods_YXPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B1C5AB933450C6346E328 /* Pods_YXPlayerDemo.framework */; };
+		B83C712E1113E868143BB82F /* Pods_YXPlayerDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C7057166F488687C33D8AA /* Pods_YXPlayerDemoUITests.framework */; };
+		E1667FE119DA8E54342096A4 /* Pods_YXPlayerDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AC57B1AD3A8A16B1DD9612 /* Pods_YXPlayerDemoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +77,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		189B1C5AB933450C6346E328 /* Pods_YXPlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXPlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D7E8196C10110CBC20B8E6 /* Pods-YXPlayerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemoTests/Pods-YXPlayerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		28985E0CCBF9042ED9331AED /* Pods-YXPlayerDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemoUITests/Pods-YXPlayerDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B3AA493DD02F41FF9F3AAE5 /* Pods-YXPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		32034A991D7425F9001C9AA4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3212801E1DB4AF31007BA154 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		32EBBFC01DB0E2C2006C13AE /* YXEnterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXEnterViewController.h; sourceTree = "<group>"; };
 		32EBBFC11DB0E2C2006C13AE /* YXEnterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXEnterViewController.m; sourceTree = "<group>"; };
 		32EBBFC21DB0E2C2006C13AE /* YXLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLiveViewController.h; sourceTree = "<group>"; };
@@ -159,8 +164,12 @@
 		32F3B9E11D7132990096F0CA /* detail_play_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_play_icon@3x.png"; sourceTree = "<group>"; };
 		32F3B9FB1D7134000096F0CA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32F3B9FC1D7134000096F0CA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3E760085413B77471D204480 /* Pods-YXPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		81DE63A5BB8FA8162BE99B69 /* Pods-YXPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		43AC57B1AD3A8A16B1DD9612 /* Pods_YXPlayerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXPlayerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E184B8406BE92EB70538902 /* Pods-YXPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A9C7057166F488687C33D8AA /* Pods_YXPlayerDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXPlayerDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42EE4BE8DA8FA4C04CC2B49 /* Pods-YXPlayerDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemoTests/Pods-YXPlayerDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DD3963CD1011F2F076621276 /* Pods_YXPlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YXPlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE81569CC1479698BD735F5 /* Pods-YXPlayerDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemoUITests/Pods-YXPlayerDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573BBB11F4540AFB4DE8EE0F /* Pods_YXPlayerDemo.framework in Frameworks */,
+				1296749474A25DBEAB0FFBA3 /* Pods_YXPlayerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1667FE119DA8E54342096A4 /* Pods_YXPlayerDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,29 +193,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B83C712E1113E868143BB82F /* Pods_YXPlayerDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0097A26350EAC71D536D78F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				189B1C5AB933450C6346E328 /* Pods_YXPlayerDemo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2624859765B78A6E1CC00CF8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				81DE63A5BB8FA8162BE99B69 /* Pods-YXPlayerDemo.debug.xcconfig */,
-				3E760085413B77471D204480 /* Pods-YXPlayerDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		32EBBFBE1DB0E2C2006C13AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,8 +400,8 @@
 				32F3B9B41D71324F0096F0CA /* YXPlayerDemoTests */,
 				32F3B9BF1D71324F0096F0CA /* YXPlayerDemoUITests */,
 				32F3B9991D71324E0096F0CA /* Products */,
-				2624859765B78A6E1CC00CF8 /* Pods */,
-				0097A26350EAC71D536D78F2 /* Frameworks */,
+				4B17F9F3C8E8815C644544D4 /* Pods */,
+				864CD573E1FFA66E208E2F23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -473,6 +467,29 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		4B17F9F3C8E8815C644544D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B3AA493DD02F41FF9F3AAE5 /* Pods-YXPlayerDemo.debug.xcconfig */,
+				5E184B8406BE92EB70538902 /* Pods-YXPlayerDemo.release.xcconfig */,
+				27D7E8196C10110CBC20B8E6 /* Pods-YXPlayerDemoTests.debug.xcconfig */,
+				D42EE4BE8DA8FA4C04CC2B49 /* Pods-YXPlayerDemoTests.release.xcconfig */,
+				EDE81569CC1479698BD735F5 /* Pods-YXPlayerDemoUITests.debug.xcconfig */,
+				28985E0CCBF9042ED9331AED /* Pods-YXPlayerDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		864CD573E1FFA66E208E2F23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3963CD1011F2F076621276 /* Pods_YXPlayerDemo.framework */,
+				43AC57B1AD3A8A16B1DD9612 /* Pods_YXPlayerDemoTests.framework */,
+				A9C7057166F488687C33D8AA /* Pods_YXPlayerDemoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,12 +497,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32F3B9C51D71324F0096F0CA /* Build configuration list for PBXNativeTarget "YXPlayerDemo" */;
 			buildPhases = (
-				FB3152AE1DD59655EFC0A12E /* Check Pods Manifest.lock */,
+				225C73CF23BD8B999EF0C321 /* [CP] Check Pods Manifest.lock */,
 				32F3B9941D71324E0096F0CA /* Sources */,
 				32F3B9951D71324E0096F0CA /* Frameworks */,
 				32F3B9961D71324E0096F0CA /* Resources */,
-				B8F8638B5074389A2FF1D0AF /* Embed Pods Frameworks */,
-				A47C3D771E1DF222146618DF /* Copy Pods Resources */,
+				F87FAA786BDE41E191A6A76D /* [CP] Embed Pods Frameworks */,
+				134620536DCCA11574CD917F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,9 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32F3B9C81D71324F0096F0CA /* Build configuration list for PBXNativeTarget "YXPlayerDemoTests" */;
 			buildPhases = (
+				FF1055C769B8AC0E5E6E2307 /* [CP] Check Pods Manifest.lock */,
 				32F3B9AD1D71324F0096F0CA /* Sources */,
 				32F3B9AE1D71324F0096F0CA /* Frameworks */,
 				32F3B9AF1D71324F0096F0CA /* Resources */,
+				90BCF1C86B88C7D7D3725007 /* [CP] Embed Pods Frameworks */,
+				A3B029AB0E8BED046933D772 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -518,9 +538,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32F3B9CB1D71324F0096F0CA /* Build configuration list for PBXNativeTarget "YXPlayerDemoUITests" */;
 			buildPhases = (
+				537A1CCDC6E5F3D358BAA3A7 /* [CP] Check Pods Manifest.lock */,
 				32F3B9B81D71324F0096F0CA /* Sources */,
 				32F3B9B91D71324F0096F0CA /* Frameworks */,
 				32F3B9BA1D71324F0096F0CA /* Resources */,
+				B0EC73D4579732062AF5836D /* [CP] Embed Pods Frameworks */,
+				ACAF5972092BC834F19E315D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -616,14 +639,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A47C3D771E1DF222146618DF /* Copy Pods Resources */ = {
+		134620536DCCA11574CD917F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,14 +654,104 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B8F8638B5074389A2FF1D0AF /* Embed Pods Frameworks */ = {
+		225C73CF23BD8B999EF0C321 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		537A1CCDC6E5F3D358BAA3A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		90BCF1C86B88C7D7D3725007 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemoTests/Pods-YXPlayerDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3B029AB0E8BED046933D772 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemoTests/Pods-YXPlayerDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACAF5972092BC834F19E315D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemoUITests/Pods-YXPlayerDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0EC73D4579732062AF5836D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemoUITests/Pods-YXPlayerDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F87FAA786BDE41E191A6A76D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,19 +759,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB3152AE1DD59655EFC0A12E /* Check Pods Manifest.lock */ = {
+		FF1055C769B8AC0E5E6E2307 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -736,6 +849,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				32F3B9AA1D71324E0096F0CA /* Base */,
+				3212801E1DB4AF31007BA154 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -747,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -791,6 +906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -827,7 +943,7 @@
 		};
 		32F3B9C61D71324F0096F0CA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81DE63A5BB8FA8162BE99B69 /* Pods-YXPlayerDemo.debug.xcconfig */;
+			baseConfigurationReference = 2B3AA493DD02F41FF9F3AAE5 /* Pods-YXPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -837,11 +953,7 @@
 				INFOPLIST_FILE = YXPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayer/include",
-					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayerKit/include",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.yunxi.YXPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -850,7 +962,7 @@
 		};
 		32F3B9C71D71324F0096F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E760085413B77471D204480 /* Pods-YXPlayerDemo.release.xcconfig */;
+			baseConfigurationReference = 5E184B8406BE92EB70538902 /* Pods-YXPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -860,11 +972,7 @@
 				INFOPLIST_FILE = YXPlayerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayer/include",
-					"$(PROJECT_DIR)/YXPlayerDemo/YXPlayerKit/include",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.yunxi.YXPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -873,6 +981,7 @@
 		};
 		32F3B9C91D71324F0096F0CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D7E8196C10110CBC20B8E6 /* Pods-YXPlayerDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = YXPlayerDemoTests/Info.plist;
@@ -885,6 +994,7 @@
 		};
 		32F3B9CA1D71324F0096F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D42EE4BE8DA8FA4C04CC2B49 /* Pods-YXPlayerDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = YXPlayerDemoTests/Info.plist;
@@ -897,6 +1007,7 @@
 		};
 		32F3B9CC1D71324F0096F0CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDE81569CC1479698BD735F5 /* Pods-YXPlayerDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = YXPlayerDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -908,6 +1019,7 @@
 		};
 		32F3B9CD1D71324F0096F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28985E0CCBF9042ED9331AED /* Pods-YXPlayerDemoUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = YXPlayerDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

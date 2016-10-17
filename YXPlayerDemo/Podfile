@@ -2,13 +2,12 @@
  platform :ios, '8.0'
 # Uncomment this line if you're using Swift
  use_frameworks!
- use_libraries!
 
 target 'YXPlayerDemo' do
-pod 'YXPlayerKit'
+pod 'YXPlayerKit', '1.0.41'
 pod 'Masonry'
 pod 'SDWebImage'
-pod 'MJRefresh', '3.1.0'
+pod 'MJRefresh'
 pod 'Wilddog',   '2.0.0'
 end
 

@@ -48,6 +48,10 @@
         [self addSubview:btn];
         [self.btns addObject:btn];
     }
+    if (titleArray.count == 1) {
+        self.currentBtn = self.btns[0];
+        [self.currentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
     //线条
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = [UIColor blueColor];
