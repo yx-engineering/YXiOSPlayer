@@ -18,7 +18,7 @@
 #define Comments_List @"comments-list" //获取评论
 #define Save_Comment @"save-comment" //上传评论
 
-//TODO:
+//YXTODO:
 #define YXBusinessAppId @""//@"企业APPID"
 #define YXAccessKey @"" //填写自己公司的
 #define YXSecretKey @"" //填写自己公司的

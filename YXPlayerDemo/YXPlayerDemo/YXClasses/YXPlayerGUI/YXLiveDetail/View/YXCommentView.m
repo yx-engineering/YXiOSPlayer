@@ -103,10 +103,11 @@
 #pragma mark BottomInputViewDelegate
 
 - (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message {
-    //TODO:在这里传入用户名，用户ID，用户头像
+    //当按下回车，发送评论的时候，会执行该代理方法。
+    //YXTODO:在这里传入用户名，用户ID，用户头像
     NSString *username = @"";
     NSString *userId = @"";//用户ID后添加“-sdk”，如：@"0001-sdk"
-    NSString *avatar = @"";//头像图片地址
+    NSString *avatar = @"";//用户头像图片地址
     [self sendRequest:Save_Comment
                  para:@{@"accessKey":YXAccessKey,
                         @"lsId":self.streamId,
