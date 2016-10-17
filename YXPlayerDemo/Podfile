@@ -4,7 +4,7 @@
  use_frameworks!
 
 target 'YXPlayerDemo' do
-pod 'YXPlayerKit', '~> 1.0.3'
+pod 'YXPlayerKit'
 pod 'Masonry'
 pod 'SDWebImage'
 pod 'MJRefresh', '3.1.0'
