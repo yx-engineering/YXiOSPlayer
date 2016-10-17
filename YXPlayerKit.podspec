@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/yx-engineering/YXiOSPlayer.git", :tag => s.version } 
   s.platform     = :ios, '8.0'
   s.requires_arc = true 
-  s.source_files = 'YXPlayer/YXPlayerKit/*.h',''YXPlayer/YXClasses/**/*.{h,m}'
+  s.source_files = 'YXPlayer/YXPlayerKit/*.h'
   s.vendored_libraries   = 'YXPlayer/lib/*.a'
   s.dependency "PLPlayerKit" ,"2.2.4"
   
