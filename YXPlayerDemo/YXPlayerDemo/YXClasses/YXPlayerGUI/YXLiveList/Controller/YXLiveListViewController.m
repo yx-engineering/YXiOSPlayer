@@ -44,7 +44,7 @@
             return ;
         }
         stongSelf.page = 1;
-        [stongSelf sendRequest:Actitity_List
+        [stongSelf sendRequest:YXActitity_List
                           para:@{@"accessKey":
                                      YXAccessKey,
                                  @"page":[NSString stringWithFormat:@"%d",stongSelf.page],
@@ -59,7 +59,7 @@
             return ;
         }
         stongSelf.page += 1;
-        [stongSelf sendRequest:Actitity_List para:@{@"accessKey":YXAccessKey,
+        [stongSelf sendRequest:YXActitity_List para:@{@"accessKey":YXAccessKey,
                                                     @"page":[NSString stringWithFormat:@"%d",stongSelf.page],
                                                     @"pageSize":@"20",
                                                     }];
@@ -77,7 +77,7 @@
 #pragma mark Send Request
 - (void)sendRequest:(NSString *)urlStr para:(NSDictionary *)para {
     [YXNetWorking postUrlString:urlStr paramater:para success:^(id obj, NSURLResponse *response) {
-        if ([urlStr  isEqual: Actitity_List]) {
+        if ([urlStr  isEqual: YXActitity_List]) {
             int pageCount = [obj[@"data"][@"pageCount"] intValue];
             if (self.page == 1) {
                 [self.listCollectionView.mj_header endRefreshing];
@@ -100,7 +100,7 @@
         }
         
     } fail:^(NSError *error, NSString *errorMessage) {
-        if ([urlStr  isEqual: Actitity_List]) {
+        if ([urlStr  isEqual: YXActitity_List]) {
             if (self.page == 1) {
                 [self.listCollectionView.mj_header endRefreshing];
             } else {

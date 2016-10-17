@@ -142,7 +142,7 @@
 #pragma mark setter
 - (void)setLiveModel:(YXLiveModel *)liveModel {
     _liveModel = liveModel;
-    [self sendRequest:Livestream_Info para:@{@"accessKey":YXAccessKey,
+    [self sendRequest:YXLivestream_Info para:@{@"accessKey":YXAccessKey,
                                              @"activityId":liveModel.liveId}];
     }
 
@@ -156,7 +156,7 @@
         YXLiveDetailViewController *strongSelf = weakSelf;
         strongSelf.page += 1;
         NSString *page = [NSString stringWithFormat:@"%ld",strongSelf.page];
-        [strongSelf sendRequest:Comments_List
+        [strongSelf sendRequest:YXComments_List
                            para:@{@"accessKey":YXAccessKey,
                                   @"lsId":strongSelf.liveStream.ID,
                                   @"page":page}];
@@ -208,7 +208,7 @@
 #pragma mark 网络请求
 - (void)sendRequest:(NSString *)urlStr para:(NSDictionary *)para {
     [YXNetWorking postUrlString:urlStr paramater:para success:^(id obj, NSURLResponse *response) {
-        if ([urlStr  isEqual: Livestream_Info]) {
+        if ([urlStr  isEqual: YXLivestream_Info]) {
             NSDictionary *data = obj[@"data"];
             NSDictionary *templateData = data[@"templateData"];
             //模块
@@ -243,12 +243,12 @@
             //获取评论
             self.page = 1;
             NSString *page = [NSString stringWithFormat:@"%ld",self.page];
-            [self sendRequest:Comments_List
+            [self sendRequest:YXComments_List
                          para:@{@"accessKey":YXAccessKey,
                                 @"lsId":self.liveStream.ID,
                                 @"page":page}];
             
-        } else if ([urlStr isEqualToString:Comments_List]) {
+        } else if ([urlStr isEqualToString:YXComments_List]) {
             if (self.page > 1) {
                 [self.commentView.commentTableView.indicator stopAnimating];
             }
@@ -265,7 +265,7 @@
             [self createWildDog];
         }
     } fail:^(NSError *error, NSString *errorMessage) {
-        if ([urlStr isEqualToString:Comments_List]) {
+        if ([urlStr isEqualToString:YXComments_List]) {
             [self createWildDog];
             if (self.page > 1) {
                 self.page -= 1;

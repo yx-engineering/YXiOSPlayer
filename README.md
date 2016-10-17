@@ -19,6 +19,7 @@ YXPlayerKit 是一个适用于 “iOS 7.0” 以上的音视频播放器 SDK，�
 - [快速开始](#1-快速开始)
 	- [配置工程](#配置工程)
 	- [示例代码](#示例代码)
+    - [云犀直播UI](#云犀直播UI)
 
 ## 快速开始
 
@@ -138,3 +139,12 @@ self.player.delegate = self;
 ```
 
 分辨可以检查是否可以播放以及当前 category 的设置是否可以后台播放。
+
+
+### 云犀直播UI
+
+YXPlayerKit 只具备播放等一系列功能，如果需要使用云犀默认的直播列表界面，以及播放界面，请到 “https://github.com/yx-engineering/YXiOSPlayer.git”自行下载。然后将 YXClasses拖入到自己的工程中。然后找到‘YXClasses/YXSource/YXGlobalDefine.h’文件（可通过搜索 “//YXTODO:”，快速找到对应的位置，进行内容填写），该文件中有三个空字符串的宏定义 YXBusinessAppId、YXAccessKey、YXSecretKey，将自己企业对应的 AppID、AccessKey、SecretKey填写进去。再到 "YXClasses/YXPlayerGUI/YXLiveDetail/View/YXCommentView.m”文件中的
+- (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message { 
+
+}
+方法中，填写当前用户的 username、userId、avatar （可提前用一个单例将这三个字段的值进行存储 或使用 NSUserDefaults 进行存储，这样就可以在这里直接获取到了）。

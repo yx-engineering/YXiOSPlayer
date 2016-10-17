@@ -142,7 +142,7 @@
 #pragma mark setter
 - (void)setLiveModel:(YXLiveModel *)liveModel {
     _liveModel = liveModel;
-    [self sendRequest:Livestream_Info para:@{@"accessKey":YXAccessKey,
+    [self sendRequest:YXLivestream_Info para:@{@"accessKey":YXAccessKey,
                                              @"activityId":liveModel.liveId}];
     }
 
@@ -156,7 +156,7 @@
         YXLiveDetailViewController *strongSelf = weakSelf;
         strongSelf.page += 1;
         NSString *page = [NSString stringWithFormat:@"%ld",strongSelf.page];
-        [strongSelf sendRequest:Comments_List
+        [strongSelf sendRequest:YXComments_List
                            para:@{@"accessKey":YXAccessKey,
                                   @"lsId":strongSelf.liveStream.ID,
                                   @"page":page}];
@@ -165,7 +165,7 @@
     self.commentView = commentView;
     NSMutableArray *views = [NSMutableArray arrayWithCapacity:self.moduleTitles.count];
     [views addObject:commentView];
-    for (int i = 1; i < self.moduleTitles.count; ++i) {
+    for (int i = 1; i < self.modules.count; ++i) {
         YXWebView *view = [YXWebView new];
         view.backgroundColor = [UIColor whiteColor];
         if (modules[i].editorValue) {
@@ -208,7 +208,7 @@
 #pragma mark 网络请求
 - (void)sendRequest:(NSString *)urlStr para:(NSDictionary *)para {
     [YXNetWorking postUrlString:urlStr paramater:para success:^(id obj, NSURLResponse *response) {
-        if ([urlStr  isEqual: Livestream_Info]) {
+        if ([urlStr  isEqual: YXLivestream_Info]) {
             NSDictionary *data = obj[@"data"];
             NSDictionary *templateData = data[@"templateData"];
             //模块
@@ -228,22 +228,27 @@
                 }
                 self.moduleTitles = titles;
                 self.modules = modules;
-                
                 NSString *themeColor = templateData[@"themeColor"];
                 themeColor = [themeColor stringByReplacingOccurrencesOfString:@"#" withString:@"0x"];
                 unsigned long hex = strtoul([themeColor UTF8String], 0, 0);
                 self.themColor = [UIColor hexColor:hex];
             }
+            if (self.moduleTitles.count == 0) {
+                YXModule *module = [YXModule moduleWithDic:@{@"name":@"评论",@"type":@"comment"}];
+                self.moduleTitles = @[module.name];
+                self.modules = @[module];
+            }
+
             self.liveStream = [YXLiveStream liveStreamWithDic:data[@"livestream"]];
             //获取评论
             self.page = 1;
             NSString *page = [NSString stringWithFormat:@"%ld",self.page];
-            [self sendRequest:Comments_List
+            [self sendRequest:YXComments_List
                          para:@{@"accessKey":YXAccessKey,
                                 @"lsId":self.liveStream.ID,
                                 @"page":page}];
             
-        } else if ([urlStr isEqualToString:Comments_List]) {
+        } else if ([urlStr isEqualToString:YXComments_List]) {
             if (self.page > 1) {
                 [self.commentView.commentTableView.indicator stopAnimating];
             }
@@ -260,7 +265,7 @@
             [self createWildDog];
         }
     } fail:^(NSError *error, NSString *errorMessage) {
-        if ([urlStr isEqualToString:Comments_List]) {
+        if ([urlStr isEqualToString:YXComments_List]) {
             [self createWildDog];
             if (self.page > 1) {
                 self.page -= 1;

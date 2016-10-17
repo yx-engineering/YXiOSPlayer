@@ -61,7 +61,7 @@
 
 - (void)sendRequest:(NSString *)urlStr para:(NSDictionary *)para {
     [YXNetWorking postUrlString:urlStr paramater:para success:^(id obj, NSURLResponse *response) {
-        if ([urlStr isEqualToString:Save_Comment]) {
+        if ([urlStr isEqualToString:YXSave_Comment]) {
             
         }
         
@@ -108,7 +108,7 @@
     NSString *username = @"";
     NSString *userId = @"";//用户ID后添加“-sdk”，如：@"0001-sdk"
     NSString *avatar = @"";//用户头像图片地址
-    [self sendRequest:Save_Comment
+    [self sendRequest:YXSave_Comment
                  para:@{@"accessKey":YXAccessKey,
                         @"lsId":self.streamId,
                         @"userId":userId,
