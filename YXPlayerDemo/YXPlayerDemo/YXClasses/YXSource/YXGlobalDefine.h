@@ -23,11 +23,6 @@
 //#define YXAccessKey @"" //填写自己公司的
 //#define YXSecretKey @"" //填写自己公司的
 
-#define YXBusinessAppId @"Tmik5o30qnLLxxnf"//@"企业APPID"
-#define YXAccessKey @"LWDLOCjzvkSRJS9vKq46OQuOKxDrbSEf" //填写自己公司的
-#define YXSecretKey @"HWF89nEHSlsGjm3xcbYkaDJn5Vm2Qkk9" //填写自己公司的
-
-
 #define YXWildDogLivestream [YunXiService containsString:@"test"] ?@"https://wild-monkey-73114.wilddogio.com/livestream/" : @"https://yunxi.wilddogio.com/livestream/"
 
 
