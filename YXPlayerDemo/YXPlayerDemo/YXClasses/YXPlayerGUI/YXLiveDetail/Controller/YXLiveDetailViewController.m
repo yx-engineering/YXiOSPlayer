@@ -174,7 +174,8 @@
         [views addObject:view];
     }
     
-    YXTitleBar *titleBar = [YXTitleBar titleBarWithTitleArray:self.moduleTitles  Frame:CGRectZero titleH:45 showDetaiViews:views];
+    CGFloat titleH = self.moduleTitles.count <= 1 ? 0 : 45;
+    YXTitleBar *titleBar = [YXTitleBar titleBarWithTitleArray:self.moduleTitles  Frame:CGRectZero titleH:titleH showDetaiViews:views];
     [self.view addSubview:titleBar];
     self.titleBar = titleBar;
     [titleBar mas_makeConstraints:^(MASConstraintMaker *make) {

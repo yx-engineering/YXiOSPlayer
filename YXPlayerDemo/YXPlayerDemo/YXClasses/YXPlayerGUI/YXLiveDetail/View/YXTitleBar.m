@@ -109,7 +109,8 @@
     }
     self.currentShowView.frame = CGRectMake(0, btnH, self.frame.size.width, self.frame.size.height - btnH);
     if (self.line.frame.origin.x == 0) {
-        self.line.frame = CGRectMake(0, btnH - 1, btnW, 1);
+        CGFloat lineH = self.titleH == 0 ? 0 : 1;
+        self.line.frame = CGRectMake(0, btnH - 1, btnW, lineH);
     }
 }
 
