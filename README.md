@@ -17,9 +17,9 @@ YXPlayerKit 是一个适用于 “iOS 7.0” 以上的音视频播放器 SDK，�
 ## 内容摘要
 
 - [快速开始](#1-快速开始)
-	- [配置工程](#配置工程)
-	- [示例代码](#示例代码)
-    - [云犀直播UI](#云犀直播UI)
+- [配置工程](#配置工程)
+- [示例代码](#示例代码)
+- [云犀直播UI](#云犀直播UI)
 
 ## 快速开始
 
@@ -108,12 +108,12 @@ self.player.delegate = self;
 ```Objective-C
 // 实现 <PLPlayerDelegate> 来控制流状态的变更
 - (void)player:(nonnull PLPlayer *)player statusDidChange:(PLPlayerStatus)state {
-	// 这里会返回流的各种状态，你可以根据状态做 UI 定制及各类其他业务操作
-	// 除了 Error 状态，其他状态都会回调这个方法
+// 这里会返回流的各种状态，你可以根据状态做 UI 定制及各类其他业务操作
+// 除了 Error 状态，其他状态都会回调这个方法
 }
 
 - (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {
-	// 当发生错误时，会回调这个方法
+// 当发生错误时，会回调这个方法
 }
 ```
 
@@ -141,16 +141,16 @@ YXPlayerKit 只具备播放等一系列功能，如果需要使用云犀默认�
 
 ```Objective-C
 /*!
- * @description 检查当前 AVAudioSession 的 category 配置是否可以播放音频. 当为 AVAudioSessionCategoryAmbient,
- * AVAudioSessionCategorySoloAmbient, AVAudioSessionCategoryPlayback, AVAudioSessionCategoryPlayAndRecord
- * 中的一种时为 YES, 否则为 NO.
- */
+* @description 检查当前 AVAudioSession 的 category 配置是否可以播放音频. 当为 AVAudioSessionCategoryAmbient,
+* AVAudioSessionCategorySoloAmbient, AVAudioSessionCategoryPlayback, AVAudioSessionCategoryPlayAndRecord
+* 中的一种时为 YES, 否则为 NO.
+*/
 + (BOOL)isPlayable;
 
 /*!
- * @description 检查当前 AVAudioSession 的 category 配置是否可以后台播放. 当为 AVAudioSessionCategoryPlayback,
- * AVAudioSessionCategoryPlayAndRecord 中的一种时为 YES, 否则为 NO.
- */
+* @description 检查当前 AVAudioSession 的 category 配置是否可以后台播放. 当为 AVAudioSessionCategoryPlayback,
+* AVAudioSessionCategoryPlayAndRecord 中的一种时为 YES, 否则为 NO.
+*/
 + (BOOL)canPlayInBackground;
 ```
 
