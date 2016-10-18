@@ -40,7 +40,6 @@
 
 @property (nonatomic, copy) NSArray<YXModule *> *modules; //模块
 @property (nonatomic, copy) NSArray<NSString *> *moduleTitles;
-@property (nonatomic, strong) UIColor *themColor; //模块按钮颜色
 @property (nonatomic, strong) YXLiveStream *liveStream;
 @property (nonatomic, assign) NSInteger page; //评论的page
 @property (nonatomic, strong) Wilddog *wilddogRef;
@@ -201,11 +200,6 @@
     self.didUpdateStreamStatus(liveStream.status);
 }
 
-- (void)setThemColor:(UIColor *)themColor {
-    _themColor = themColor;
-    self.titleBar.btnsBackColor = themColor;
-}
-
 #pragma mark 网络请求
 - (void)sendRequest:(NSString *)urlStr para:(NSDictionary *)para {
     [YXNetWorking postUrlString:urlStr paramater:para success:^(id obj, NSURLResponse *response) {
@@ -229,10 +223,6 @@
                 }
                 self.moduleTitles = titles;
                 self.modules = modules;
-                NSString *themeColor = templateData[@"themeColor"];
-                themeColor = [themeColor stringByReplacingOccurrencesOfString:@"#" withString:@"0x"];
-                unsigned long hex = strtoul([themeColor UTF8String], 0, 0);
-                self.themColor = [UIColor hexColor:hex];
             }
             if (self.moduleTitles.count == 0) {
                 YXModule *module = [YXModule moduleWithDic:@{@"name":@"评论",@"type":@"comment"}];
