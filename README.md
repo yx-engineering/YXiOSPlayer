@@ -116,6 +116,7 @@ self.player.delegate = self;
 // 当发生错误时，会回调这个方法
 }
 ```
+- Done!
 
 ### 云犀直播UI
 
