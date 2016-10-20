@@ -178,8 +178,8 @@
     for (int i = 1; i < self.modules.count; ++i) {
         YXWebView *view = [YXWebView new];
         view.backgroundColor = [UIColor whiteColor];
-        if (modules[i].editorValue) {
-            view.content = modules[i].editorValue;
+        if (modules[i].html) {
+            view.content = modules[i].html;
         }
         [views addObject:view];
     }

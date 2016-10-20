@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *hasText;
 @property (nonatomic, copy) NSString *editorValue;
+@property (nonatomic, copy) NSString *html;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *active;
 
