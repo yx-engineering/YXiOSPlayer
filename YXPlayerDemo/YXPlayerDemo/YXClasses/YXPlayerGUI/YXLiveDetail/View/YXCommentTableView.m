@@ -66,12 +66,6 @@
     
     YXCommentTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YXCommentTableCell" forIndexPath:indexPath];
     cell.commentModel = self.dataArr[indexPath.row];
-//    if (indexPath.row > 0) {
-//        cell.commentModel = self.dataArr[indexPath.row];
-//    } else {
-//        NSDictionary *dic = @{@"username": @"",@"content":@""};
-//        cell.commentModel = [YXCommentModel commentModelWithDic:dic];
-//    }
     return cell;
 }
 

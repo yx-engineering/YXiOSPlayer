@@ -105,30 +105,6 @@
     self.timeLabel.text = [NSString stringWithFormat:@"%@ %@楼",commentModel.time,commentModel.floor];
 }
 
-//- (void)setCommentModel:(YXCommentModel *)commentModel {
-//    _commentModel = commentModel;
-//    if (commentModel.username.length == 0) {
-//        self.contentLab.attributedText = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-//        return ;
-//    }
-//
-//    NSString *content = [NSString stringWithFormat:@"%@: %@",commentModel.username,commentModel.content];
-//    
-//    NSMutableParagraphStyle *paragra = [[NSMutableParagraphStyle alloc] init];
-//    paragra.lineSpacing = 5;
-//    paragra.minimumLineHeight = self.contentLab.font.lineHeight + 5;
-//    paragra.firstLineHeadIndent = 2;
-//    paragra.headIndent = 2;
-//    paragra.alignment = NSTextAlignmentLeft;
-//    
-//    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:paragra}];
-//    UIColor *lightBlueColor = [UIColor colorWithRed:34/255.0 green:164/255.0 blue:229/255.0 alpha:1];
-//    
-//    [attr addAttribute:NSForegroundColorAttributeName value:lightBlueColor range:NSMakeRange(0, commentModel.username.length)];
-//    self.contentLab.attributedText = attr;
-//}
-
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.iconView.layer.masksToBounds = YES;
