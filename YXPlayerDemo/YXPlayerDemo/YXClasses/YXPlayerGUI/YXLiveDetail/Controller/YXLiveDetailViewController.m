@@ -49,6 +49,17 @@
 
 @implementation YXLiveDetailViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+
 - (instancetype)init {
     self = [super init];
     [self addSubviews];
@@ -272,8 +283,8 @@
     playViewBottom.backgroundColor = [UIColor colorWithWhite:0 alpha:0.9];
     UISlider *slider = [[UISlider alloc] init];
     [playViewBottom addSubview:slider];
-    
-    UIImage * thumbImage = [[UIImage imageWithColor:[UIColor redColor] Size:CGSizeMake(12, 12)] cutCircleImage];
+    slider.tintColor = [UIColor redColor];
+    UIImage * thumbImage =[UIImage yx_circleImageWithFillColor:[UIColor whiteColor] strokeColor:[UIColor redColor] radius:6];
     slider.maximumValue = 0.1;
     [slider setThumbImage:thumbImage forState:UIControlStateNormal];
     [slider addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
@@ -411,13 +422,13 @@
             [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
             }];
-            self.navigationController.navigationBar.hidden = YES;
+            self.titleBar.hidden = true;
         } else {
             [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.left.right.equalTo(self.view);
                 make.height.equalTo(self.playView.mas_width).multipliedBy(0.56);
             }];
-            self.navigationController.navigationBar.hidden = false;
+            self.titleBar.hidden = false;
         }
     } completion:nil];
 }

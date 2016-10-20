@@ -9,7 +9,7 @@
 #import "NSString+YXExtension.h"
 
 @implementation NSString (YXExtension)
-- (NSString *)formatTime {
+- (NSString *)yx_formatTime {
     NSTimeInterval selfTimeInterval = self.doubleValue;
     NSDate *selfDate = [[NSDate alloc] initWithTimeIntervalSince1970:selfTimeInterval];
     NSDate *nowDate = [[NSDate  alloc] init];

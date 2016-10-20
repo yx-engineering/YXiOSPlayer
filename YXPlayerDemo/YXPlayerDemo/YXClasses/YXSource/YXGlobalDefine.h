@@ -23,7 +23,6 @@
 #define YXAccessKey @"" //填写自己公司的
 #define YXSecretKey @"" //填写自己公司的
 
-
 #define YXWildDogLivestream [YunXiService containsString:@"test"] ?@"https://wild-monkey-73114.wilddogio.com/livestream/" : @"https://yunxi.wilddogio.com/livestream/"
 
 

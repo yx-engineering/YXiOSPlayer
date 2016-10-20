@@ -10,8 +10,9 @@
 
 @interface UIImage (YXExtension)
 //用颜色创建图片
-+ (UIImage *)imageWithColor:(UIColor *)color Size:(CGSize)size;
-
++ (UIImage *)yx_imageWithColor:(UIColor *)color Size:(CGSize)size;
+//带圆圈的圆形图片
++ (UIImage *)yx_circleImageWithFillColor:(UIColor *)fillColor strokeColor:(UIColor *)strokeColor radius:(CGFloat)radius;
 //截取圆形图片
-- (UIImage *)cutCircleImage;
+- (UIImage *)yx_cutCircleImage;
 @end

@@ -37,7 +37,7 @@
     YXLiveListCollectionView *listCollectionView = [[YXLiveListCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[[YXCollectionLayout alloc] init]];
     listCollectionView.delegate = self;
     __weak typeof(self) weakSelf = self;
-    [listCollectionView yxAddDefaultTextHeaderRefresh:^{
+    [listCollectionView yx_addDefaultTextHeaderRefresh:^{
         YXLiveListViewController *stongSelf = weakSelf;
         if (stongSelf.listCollectionView.mj_footer.isRefreshing) {
             [stongSelf.listCollectionView.mj_header endRefreshing];
@@ -52,7 +52,7 @@
                                  }];
     }];
     
-    [listCollectionView yxAddDefaultTextFooterRefresh:^{
+    [listCollectionView yx_addDefaultTextFooterRefresh:^{
         YXLiveListViewController *stongSelf = weakSelf;
         if (stongSelf.listCollectionView.mj_header.isRefreshing) {
             [stongSelf.listCollectionView.mj_footer endRefreshing];

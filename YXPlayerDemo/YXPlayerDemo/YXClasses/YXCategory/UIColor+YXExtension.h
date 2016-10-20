@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (YXExtension)
-+ (UIColor *)hexColor:(unsigned long)hex;
++ (UIColor *)yx_hexColor:(unsigned long)hex;
 @end

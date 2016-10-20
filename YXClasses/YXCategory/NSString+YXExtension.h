@@ -10,5 +10,5 @@
 
 @interface NSString (YXExtension)
 //NSString 本身是 timeIntervalSince1970 得到的秒数。
-- (NSString *)formatTime;
+- (NSString *)yx_formatTime;
 @end

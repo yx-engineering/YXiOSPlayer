@@ -10,6 +10,6 @@
 #import "MJRefresh.h"
 @interface UIScrollView (YXExtension)
 //添加默认的上拉和下拉刷新样式
-- (void)yxAddDefaultTextHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock;
-- (void)yxAddDefaultTextFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock;
+- (void)yx_addDefaultTextHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock;
+- (void)yx_addDefaultTextFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock;
 @end

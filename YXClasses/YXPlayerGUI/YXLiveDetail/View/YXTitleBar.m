@@ -37,26 +37,28 @@
 
 - (void)addSubviewsWithTitleArray:(NSArray *)titleArray detailViews:(NSArray *) detailViews{
     
-    for (NSInteger i=0; i< titleArray.count; i++) {
-        UIButton *btn = [[UIButton alloc] init];
-        btn.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
-        [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        [btn setTitle:titleArray[i] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btn addTarget:self action:@selector(clickTilteBtn:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = i + 1;
-        [self addSubview:btn];
-        [self.btns addObject:btn];
+    if (_titleH != 0) {
+        for (NSInteger i=0; i< titleArray.count; i++) {
+            UIButton *btn = [[UIButton alloc] init];
+            btn.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
+            [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            [btn setTitle:titleArray[i] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            [btn addTarget:self action:@selector(clickTilteBtn:) forControlEvents:UIControlEventTouchUpInside];
+            btn.tag = i + 1;
+            [self addSubview:btn];
+            [self.btns addObject:btn];
+        }
+        if (titleArray.count == 1) {
+            self.currentBtn = self.btns[0];
+            [self.currentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        //线条
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = [UIColor blueColor];
+        [self addSubview:line];
+        self.line = line;
     }
-    if (titleArray.count == 1) {
-        self.currentBtn = self.btns[0];
-        [self.currentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    //线条
-    UIView *line = [[UIView alloc] init];
-    line.backgroundColor = [UIColor blueColor];
-    [self addSubview:line];
-    self.line = line;
     //详情
     self.currentShowView = detailViews.firstObject;
     [self addSubview:self.currentShowView];

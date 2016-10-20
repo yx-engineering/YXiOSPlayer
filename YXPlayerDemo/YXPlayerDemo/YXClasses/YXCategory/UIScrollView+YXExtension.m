@@ -9,7 +9,7 @@
 #import "UIScrollView+YXExtension.h"
 
 @implementation UIScrollView (YXExtension)
-- (void)yxAddDefaultTextHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock {
+- (void)yx_addDefaultTextHeaderRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         self.mj_footer.state = MJRefreshStateIdle;
         refreshingBlock();
@@ -22,7 +22,7 @@
     self.mj_header = header;
 }
 
-- (void)yxAddDefaultTextFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock {
+- (void)yx_addDefaultTextFooterRefresh:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         refreshingBlock();
     }];

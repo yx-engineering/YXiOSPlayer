@@ -9,7 +9,7 @@
 #import "UIColor+YXExtension.h"
 
 @implementation UIColor (YXExtension)
-+ (UIColor *)hexColor:(unsigned long)hex {
++ (UIColor *)yx_hexColor:(unsigned long)hex {
     CGFloat r = ((hex & 0xFF0000) >> 16) / 255.0;
     CGFloat g = ((hex & 0xFF00) >> 8) / 255.0;
     CGFloat b = (hex & 0xFF) / 255.0;

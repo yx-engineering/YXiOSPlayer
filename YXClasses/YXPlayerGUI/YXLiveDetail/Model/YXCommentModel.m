@@ -20,7 +20,7 @@
         self.userId = value;
     } else if ([key isEqualToString:@"createdAt"]) {
         NSString *createdAt = [NSString stringWithFormat:@"%@",value];
-        self.time = [createdAt formatTime];
+        self.time = [createdAt yx_formatTime];
     }
 }
 @end
