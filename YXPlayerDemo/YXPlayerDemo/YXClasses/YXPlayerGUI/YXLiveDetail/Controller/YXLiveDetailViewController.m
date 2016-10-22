@@ -92,6 +92,7 @@
             case PLPlayerStatusStopped:
                 strongSelf.slider.value = strongSelf.slider.maximumValue;
                 strongSelf.timeLab.currentTime = strongSelf.slider.value;
+                strongSelf.playBtn.selected = NO;
             default:
                 strongSelf.playBtn.selected = NO;
                 break;
@@ -370,17 +371,11 @@
     switch (interfaceOrientation) {
             //竖屏转横屏
         case UIInterfaceOrientationPortrait:
-            [[UIDevice currentDevice] setValue:@(UIInterfaceOrientationLandscapeRight) forKey:@"orientation"];
-            break;
-            
         case UIInterfaceOrientationPortraitUpsideDown:
             [[UIDevice currentDevice] setValue:@(UIInterfaceOrientationLandscapeRight) forKey:@"orientation"];
             break;
             //横屏转竖屏
         case UIInterfaceOrientationLandscapeLeft:
-            [[UIDevice currentDevice] setValue:@(UIInterfaceOrientationPortrait) forKey:@"orientation"];
-            break;
-            
         case UIInterfaceOrientationLandscapeRight:
             [[UIDevice currentDevice] setValue:@(UIInterfaceOrientationPortrait) forKey:@"orientation"];
             break;
