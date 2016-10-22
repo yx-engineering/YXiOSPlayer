@@ -49,7 +49,7 @@
             [self addSubview:btn];
             [self.btns addObject:btn];
         }
-        if (titleArray.count == 1) {
+        if (titleArray.count != 0) {
             self.currentBtn = self.btns[0];
             [self.currentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
