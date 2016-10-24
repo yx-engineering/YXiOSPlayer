@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.name         = "YXPlayerKit"
   s.author       = { "ding" => "dingyp@yunxi.tv" }
-  s.version      = "1.0.41"
+  s.version      = "1.0.42"
   s.license  = "MIT"
   s.summary = "iOS video player SDK, RTMP, HLS video streaming supported." 
   s.homepage = 'https://github.com/yx-engineering/YXiOSPlayer.git'
