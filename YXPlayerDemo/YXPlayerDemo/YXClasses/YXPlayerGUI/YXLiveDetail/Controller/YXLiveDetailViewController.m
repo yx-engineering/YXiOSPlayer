@@ -62,7 +62,7 @@
 
 - (instancetype)init {
     self = [super init];
-    self.fd_prefersNavigationBarHidden = true;
+    self.fd_prefersNavigationBarHidden = YES;
     [self addSubviews];
     [self addConstraintsForSubviews];
     return self;
@@ -366,8 +366,8 @@
             strongSelf.playBtn.alpha = 0;
             strongSelf.playViewBottom.alpha = 0;
         } completion:^(BOOL finished) {
-            strongSelf.playBtn.hidden = true;
-            strongSelf.playViewBottom.hidden = true;
+            strongSelf.playBtn.hidden = YES;
+            strongSelf.playViewBottom.hidden = YES;
             strongSelf.playBtn.alpha = 1;
             strongSelf.playViewBottom.alpha = 1;
         }];
@@ -449,13 +449,13 @@
             [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
             }];
-            self.titleBar.hidden = true;
+            self.titleBar.hidden = YES;
         } else {
             [self.playView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.left.right.equalTo(self.view);
                 make.height.equalTo(self.playView.mas_width).multipliedBy(0.56);
             }];
-            self.titleBar.hidden = false;
+            self.titleBar.hidden = NO;
         }
     } completion:nil];
 }
