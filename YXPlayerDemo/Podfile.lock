@@ -22,7 +22,7 @@ PODS:
     - WilddogSync (= 2.0.0)
   - WilddogAuth (2.0.0)
   - WilddogSync (2.0.0)
-  - YXPlayerKit (1.0.41):
+  - YXPlayerKit (1.0.42):
     - PLPlayerKit (= 2.2.4)
 
 DEPENDENCIES:
@@ -30,7 +30,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - Wilddog (= 2.0.0)
-  - YXPlayerKit (= 1.0.41)
+  - YXPlayerKit (= 1.0.42)
 
 SPEC CHECKSUMS:
   HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
@@ -42,8 +42,8 @@ SPEC CHECKSUMS:
   Wilddog: 8eaa33f8714b266d2e393a7972eda33f513d7370
   WilddogAuth: 8686a5021bccb093e0bbd535b379fae1323aef41
   WilddogSync: 596396d8cd7b35c71a09204bab427be9aaafef57
-  YXPlayerKit: e596faaaf98b3266a4ffe8c4b51da7f7242466d7
+  YXPlayerKit: 1c10b309440175768963d133d91e15b954eb921f
 
-PODFILE CHECKSUM: a444bee46c5d906d9e934f405535c7422d84f9b9
+PODFILE CHECKSUM: e1f281b52f5dd0006ce51dcd7bc160b4de47eb89
 
 COCOAPODS: 1.1.0.rc.3
