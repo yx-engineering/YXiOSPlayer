@@ -25,6 +25,7 @@
 
 #import "UIImage+YXExtension.h"
 #import "NSTimer+YXExtension.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface YXLiveDetailViewController ()
 
@@ -33,7 +34,8 @@
 @property (nonatomic, weak) UIButton *controlScreeBtn; //控制屏幕旋转
 @property (nonatomic, weak) UISlider *slider;
 @property (nonatomic, weak) YXCalculateTimeLabel *timeLab;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *calculateTimer; //计时 timer
+@property (nonatomic, strong) NSTimer *noRepeatTimer;
 @property (nonatomic, weak) YXTitleBar *titleBar;
 @property (nonatomic, weak) YXCommentView *commentView;
 @property (nonatomic, weak) UIButton *playBtn; //播放和暂停
@@ -45,26 +47,24 @@
 @property (nonatomic, strong) Wilddog *wilddogRef;
 @property (nonatomic, assign) WilddogHandle wilddogHandle;
 @property (nonatomic, assign) WilddogHandle wilddogRemoveHandle;
+@property (nonatomic, assign) BOOL isStatusBarHidden;
 @end
 
 @implementation YXLiveDetailViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-}
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self createNoRepeatTimer];
+    self.isStatusBarHidden = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
-
 
 - (instancetype)init {
     self = [super init];
+    self.fd_prefersNavigationBarHidden = true;
     [self addSubviews];
     [self addConstraintsForSubviews];
-    
     return self;
 }
 
@@ -153,9 +153,10 @@
 #pragma mark setter
 - (void)setLiveModel:(YXLiveModel *)liveModel {
     _liveModel = liveModel;
-    [self sendRequest:YXLivestream_Info para:@{@"accessKey":YXAccessKey,
-                                             @"activityId":liveModel.liveId}];
-    }
+    [self sendRequest:YXLivestream_Info
+                 para:@{
+                        @"activityId":liveModel.liveId}];
+}
 
 - (void)setModules:(NSArray<YXModule *> *)modules {
     _modules = modules;
@@ -168,7 +169,7 @@
         strongSelf.page += 1;
         NSString *page = [NSString stringWithFormat:@"%ld",strongSelf.page];
         [strongSelf sendRequest:YXComments_List
-                           para:@{@"accessKey":YXAccessKey,
+                           para:@{
                                   @"lsId":strongSelf.liveStream.ID,
                                   @"page":page}];
         
@@ -180,7 +181,7 @@
         YXWebView *view = [YXWebView new];
         view.backgroundColor = [UIColor whiteColor];
         if (modules[i].html) {
-            view.content = modules[i].html;
+            view.content = modules[i].html;//modules[i].editorValue;
         }
         [views addObject:view];
     }
@@ -205,7 +206,7 @@
         [self showMessage:@"即将观看直播"];
     } else if(liveStream.status == 2) {
         [self showMessage:@"即将观看回播"];
-        [self createTimer];
+        [self createCalculateTimer];
     } else {
         [self showMessage:@"直播还未开始"];
     }
@@ -241,13 +242,13 @@
                 self.moduleTitles = @[module.name];
                 self.modules = @[module];
             }
-
+            
             self.liveStream = [YXLiveStream liveStreamWithDic:data[@"livestream"]];
             //获取评论
             self.page = 1;
             NSString *page = [NSString stringWithFormat:@"%ld",self.page];
             [self sendRequest:YXComments_List
-                         para:@{@"accessKey":YXAccessKey,
+                         para:@{
                                 @"lsId":self.liveStream.ID,
                                 @"page":page}];
             
@@ -285,7 +286,7 @@
     UISlider *slider = [[UISlider alloc] init];
     [playViewBottom addSubview:slider];
     slider.tintColor = [UIColor redColor];
-    UIImage * thumbImage =[UIImage yx_circleImageWithFillColor:[UIColor whiteColor] strokeColor:[UIColor redColor] radius:6];
+    UIImage * thumbImage = [UIImage yx_circleImageWithFillColor:[UIColor whiteColor] strokeColor:[UIColor redColor] radius:6];
     slider.maximumValue = 0.1;
     [slider setThumbImage:thumbImage forState:UIControlStateNormal];
     [slider addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
@@ -338,21 +339,47 @@
     }];
 }
 
-- (void)createTimer {
+- (void)createCalculateTimer {
     __weak typeof(self) weakSelf = self;
-    self.timer = [NSTimer yx_ScheduledTimerWithTimeInterval:1 block:^{
+    self.calculateTimer = [NSTimer yx_ScheduledTimerWithTimeInterval:1 block:^{
         YXLiveDetailViewController *strongSelf = weakSelf;
         if (strongSelf.playView.currentTime.timescale != 0) {
             strongSelf.slider.value = strongSelf.playView.currentTime.value / strongSelf.playView.currentTime.timescale;
         }
         strongSelf.timeLab.currentTime = strongSelf.slider.value;
     } repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:self.calculateTimer forMode:NSRunLoopCommonModes];
 }
 
-- (void)dealTimer {
-    [self.timer invalidate];
-    self.timer = nil;
+- (void)dealCalculateTimer {
+    [self.calculateTimer invalidate];
+    self.calculateTimer = nil;
+}
+
+- (void)createNoRepeatTimer {
+    //创建新的之前，取消之前的
+    [self dealNoRepeatTimer];
+    __weak typeof(self) weakSelf = self;
+    self.noRepeatTimer = [NSTimer yx_ScheduledTimerWithTimeInterval:3 block:^{
+        YXLiveDetailViewController *strongSelf = weakSelf;
+        [UIView animateWithDuration:0.4 animations:^{
+            strongSelf.playBtn.alpha = 0;
+            strongSelf.playViewBottom.alpha = 0;
+        } completion:^(BOOL finished) {
+            strongSelf.playBtn.hidden = true;
+            strongSelf.playViewBottom.hidden = true;
+            strongSelf.playBtn.alpha = 1;
+            strongSelf.playViewBottom.alpha = 1;
+        }];
+        
+    } repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:self.noRepeatTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)dealNoRepeatTimer {
+    [self.noRepeatTimer invalidate];
+    self.noRepeatTimer = nil;
+
 }
 
 #pragma mark target
@@ -360,6 +387,11 @@
     [self.commentView resignTextviewFirstResponder];
     self.playBtn.hidden = !self.playBtn.hidden;
     self.playViewBottom.hidden = !self.playViewBottom.hidden;
+    if (!self.playBtn.hidden) {
+        [self createNoRepeatTimer];
+    } else {
+        [self dealNoRepeatTimer];
+    }
 }
 
 - (void)didClickPlayBtn:(UIButton *)sender {
@@ -387,8 +419,8 @@
 
 - (void)timeChanged:(UISlider *)sender {
     if (self.liveModel.streamStatus == 2) {
-        if (self.timer) {
-            [self dealTimer];
+        if (self.calculateTimer) {
+            [self dealCalculateTimer];
         }
         self.timeLab.currentTime = sender.value;
     }
@@ -398,8 +430,8 @@
     if (self.liveModel.streamStatus == 2) {
         CMTime time = CMTimeMake(sender.value, 1);
         [self.playView seekTo:time];
-        if (!self.timer) {
-            [self createTimer];
+        if (!self.calculateTimer) {
+            [self createCalculateTimer];
         }
     } else {
         sender.value = 0;
@@ -445,6 +477,10 @@
     });
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return self.isStatusBarHidden;
+}
+
 - (void)dealloc
 {
     if (self.wilddogRef) {
@@ -452,7 +488,8 @@
         [self.wilddogRef removeObserverWithHandle:self.wilddogRemoveHandle];
         self.wilddogRef = nil;
     }
-    [self dealTimer];
+    [self dealCalculateTimer];
+    [self dealNoRepeatTimer];
     NSLog(@"\n YXLiveDetailViewController 销毁");
 }
 

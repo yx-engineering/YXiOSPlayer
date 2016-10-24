@@ -130,8 +130,11 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     // 设置请求方法:
     request.HTTPMethod = @"POST";
-    //添加时间戳
+    
     NSMutableDictionary *mutalPara = [[NSMutableDictionary alloc] initWithDictionary:paramater];
+    //添加 accessKey
+    mutalPara[@"accessKey"] = YXAccessKey;
+    //添加时间戳
     NSString *time =[NSString stringWithFormat:@"%.0f",[[NSDate alloc] init].timeIntervalSince1970];
     mutalPara[@"timestamp"] = time;
     //获取签名

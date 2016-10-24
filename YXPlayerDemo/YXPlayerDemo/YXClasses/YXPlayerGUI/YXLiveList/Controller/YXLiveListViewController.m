@@ -45,8 +45,7 @@
         }
         stongSelf.page = 1;
         [stongSelf sendRequest:YXActitity_List
-                          para:@{@"accessKey":
-                                     YXAccessKey,
+                          para:@{
                                  @"page":[NSString stringWithFormat:@"%d",stongSelf.page],
                                  @"pageSize":@"20",
                                  }];
@@ -59,7 +58,7 @@
             return ;
         }
         stongSelf.page += 1;
-        [stongSelf sendRequest:YXActitity_List para:@{@"accessKey":YXAccessKey,
+        [stongSelf sendRequest:YXActitity_List para:@{
                                                     @"page":[NSString stringWithFormat:@"%d",stongSelf.page],
                                                     @"pageSize":@"20",
                                                     }];

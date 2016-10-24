@@ -109,10 +109,11 @@
     NSString *userId = @"";//用户ID后添加“-sdk”，如：@"0001-sdk"
     NSString *avatar = @"";//用户头像图片地址
     [self sendRequest:YXSave_Comment
-                 para:@{@"accessKey":YXAccessKey,
+                 para:@{
                         @"lsId":self.streamId,
                         @"userId":userId,
                         @"username":username,
-                        @"avatar":avatar,@"content":message}];
+                        @"avatar":avatar,
+                        @"content":message}];
 }
 @end

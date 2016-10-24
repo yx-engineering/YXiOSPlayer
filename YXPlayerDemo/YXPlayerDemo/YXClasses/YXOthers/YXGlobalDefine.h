@@ -20,8 +20,10 @@
 
 //YXTODO:
 #define YXBusinessAppId @""//@"企业APPID"
-#define YXAccessKey @"" //填写自己公司的
-#define YXSecretKey @"" //填写自己公司的
+#define YXAccessKey @"" //填写自己公司的 AccessKey
+#define YXSecretKey @"" //填写自己公司的 SecretKey
+
+
 
 #define YXWildDogLivestream [YunXiService containsString:@"test"] ?@"https://wild-monkey-73114.wilddogio.com/livestream/" : @"https://yunxi.wilddogio.com/livestream/"
 

@@ -16,10 +16,8 @@
 @property (nonatomic, weak) UILabel *liveTitleLab;
 @property (nonatomic, weak) UILabel *ownerLab;
 @property (nonatomic, weak) UILabel *timeLab;
-//@property (nonatomic, weak) UIButton *likeBtn; //收藏按钮
 
 @property (nonatomic, strong) MASConstraint *onLineNumLabWithCons;
-//@property (nonatomic, strong) MASConstraint *likeBtnWithCons;
 @end
 
 @implementation YXLiveCollectionCell
@@ -75,15 +73,6 @@
     timeLab.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:timeLab];
     self.timeLab = timeLab;
-//    UIButton *likeBtn = [[UIButton alloc] init];
-//    [likeBtn setTitle:0 forState:UIControlStateNormal];
-//    likeBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-//    [likeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [likeBtn setImage:[UIImage imageNamed:@"favorite_favorite_icon"] forState:UIControlStateNormal];
-//    likeBtn.backgroundColor = [UIColor colorWithRed:34/255.0 green:164/255.0 blue:229/255.0 alpha:1];
-//    [self.contentView addSubview:likeBtn];
-//    self.likeBtn = likeBtn;
-    
 }
 
 - (void)addConstraintsForSubviews {
@@ -121,14 +110,7 @@
         make.right.equalTo(self.imageView);
         make.width.mas_equalTo(105);
     }];
-    
-//    [self.likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.height.equalTo(self.ownerLab);
-//        make.left.equalTo(self.ownerLab.mas_right).offset(2);
-//        make.right.equalTo(self.imageView);
-//        self.likeBtnWithCons = make.width.equalTo(@23);
-//    }];
-    
+        
 }
 
 - (void)setLiveModel:(YXLiveModel *)liveModel {
@@ -141,8 +123,6 @@
     CGFloat onLineNumLabW = [self textW:self.onLineNumLab.text fontSize:self.onLineNumLab.font.pointSize] + 2;
     self.onLineNumLabWithCons.offset = onLineNumLabW;
     self.timeLab.text = liveModel.startFormatTime;
-//    CGFloat likeBtnW = [self textW:self.likeBtn.titleLabel.text fontSize:10] + 12 + 2 ;
-//    self.likeBtnWithCons.offset = likeBtnW;
     [self.contentView layoutIfNeeded];
 }
 

@@ -31,7 +31,7 @@
 }
 
 - (void)setLiveModel:(YXLiveModel *)liveModel {
-    NSString *playUrlStr = @"";//@"rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    NSString *playUrlStr = @"";
     if (liveModel.streamStatus <= 1) {
         playUrlStr = liveModel.liveStream.rtmpLiveUrl;
         self.player = [YXPlayer playerLiveWithURL:[NSURL URLWithString:playUrlStr] option:[YXPlayerOption defaultOption]];

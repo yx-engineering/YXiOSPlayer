@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1296749474A25DBEAB0FFBA3 /* Pods_YXPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3963CD1011F2F076621276 /* Pods_YXPlayerDemo.framework */; };
+		32E9BA221DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E9BA201DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		32E9BA241DBE1073004E9C04 /* YXLiveDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E9BA231DBE1073004E9C04 /* YXLiveDetailViewController.m */; };
 		32EBBFC41DB0E2C2006C13AE /* YXEnterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC11DB0E2C2006C13AE /* YXEnterViewController.m */; };
 		32EBBFC51DB0E2C2006C13AE /* YXLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC31DB0E2C2006C13AE /* YXLiveViewController.m */; };
 		32EBC0111DB0E2D7006C13AE /* NSString+YXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC91DB0E2D6006C13AE /* NSString+YXExtension.m */; };
@@ -15,7 +17,6 @@
 		32EBC0131DB0E2D7006C13AE /* UIImage+YXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFCD1DB0E2D6006C13AE /* UIImage+YXExtension.m */; };
 		32EBC0141DB0E2D7006C13AE /* UIScrollView+YXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFCF1DB0E2D6006C13AE /* UIScrollView+YXExtension.m */; };
 		32EBC0151DB0E2D7006C13AE /* YXNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFD21DB0E2D6006C13AE /* YXNetWorking.m */; };
-		32EBC0161DB0E2D7006C13AE /* YXLiveDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFD71DB0E2D7006C13AE /* YXLiveDetailViewController.m */; };
 		32EBC0171DB0E2D7006C13AE /* YXCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFDA1DB0E2D7006C13AE /* YXCommentModel.m */; };
 		32EBC0181DB0E2D7006C13AE /* YXLiveStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFDC1DB0E2D7006C13AE /* YXLiveStream.m */; };
 		32EBC0191DB0E2D7006C13AE /* YXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFDE1DB0E2D7006C13AE /* YXModule.m */; };
@@ -82,6 +83,10 @@
 		2B3AA493DD02F41FF9F3AAE5 /* Pods-YXPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		32034A991D7425F9001C9AA4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3212801E1DB4AF31007BA154 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		32E9BA1F1DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		32E9BA201DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		32E9BA211DBE105F004E9C04 /* YXGlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGlobalDefine.h; sourceTree = "<group>"; };
+		32E9BA231DBE1073004E9C04 /* YXLiveDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXLiveDetailViewController.m; sourceTree = "<group>"; };
 		32EBBFC01DB0E2C2006C13AE /* YXEnterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXEnterViewController.h; sourceTree = "<group>"; };
 		32EBBFC11DB0E2C2006C13AE /* YXEnterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXEnterViewController.m; sourceTree = "<group>"; };
 		32EBBFC21DB0E2C2006C13AE /* YXLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLiveViewController.h; sourceTree = "<group>"; };
@@ -97,7 +102,6 @@
 		32EBBFD11DB0E2D6006C13AE /* YXNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXNetWorking.h; sourceTree = "<group>"; };
 		32EBBFD21DB0E2D6006C13AE /* YXNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXNetWorking.m; sourceTree = "<group>"; };
 		32EBBFD61DB0E2D6006C13AE /* YXLiveDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLiveDetailViewController.h; sourceTree = "<group>"; };
-		32EBBFD71DB0E2D7006C13AE /* YXLiveDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXLiveDetailViewController.m; sourceTree = "<group>"; };
 		32EBBFD91DB0E2D7006C13AE /* YXCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXCommentModel.h; sourceTree = "<group>"; };
 		32EBBFDA1DB0E2D7006C13AE /* YXCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXCommentModel.m; sourceTree = "<group>"; };
 		32EBBFDB1DB0E2D7006C13AE /* YXLiveStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXLiveStream.h; sourceTree = "<group>"; };
@@ -146,7 +150,6 @@
 		32EBC00D1DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_highlighted@3x.png"; sourceTree = "<group>"; };
 		32EBC00E1DB0E2D7006C13AE /* live_gift_btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_normal@2x.png"; sourceTree = "<group>"; };
 		32EBC00F1DB0E2D7006C13AE /* live_gift_btn_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_normal@3x.png"; sourceTree = "<group>"; };
-		32EBC0101DB0E2D7006C13AE /* YXGlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGlobalDefine.h; sourceTree = "<group>"; };
 		32EBC0381DB0EE3E006C13AE /* NSTimer+YXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+YXExtension.h"; sourceTree = "<group>"; };
 		32EBC0391DB0EE3E006C13AE /* NSTimer+YXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+YXExtension.m"; sourceTree = "<group>"; };
 		32F3B9981D71324E0096F0CA /* YXPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +203,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32E9BA1C1DBE105F004E9C04 /* YXOthers */ = {
+			isa = PBXGroup;
+			children = (
+				32E9BA1D1DBE105F004E9C04 /* ThirdFrame */,
+				32E9BA211DBE105F004E9C04 /* YXGlobalDefine.h */,
+			);
+			path = YXOthers;
+			sourceTree = "<group>";
+		};
+		32E9BA1D1DBE105F004E9C04 /* ThirdFrame */ = {
+			isa = PBXGroup;
+			children = (
+				32E9BA1E1DBE105F004E9C04 /* FDFullscreenPopGesture */,
+			);
+			path = ThirdFrame;
+			sourceTree = "<group>";
+		};
+		32E9BA1E1DBE105F004E9C04 /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				32E9BA1F1DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.h */,
+				32E9BA201DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
 		32EBBFBE1DB0E2C2006C13AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,9 +251,10 @@
 		32EBBFC61DB0E2D6006C13AE /* YXClasses */ = {
 			isa = PBXGroup;
 			children = (
+				32EBBFD31DB0E2D6006C13AE /* YXPlayerGUI */,
 				32EBBFC71DB0E2D6006C13AE /* YXCategory */,
 				32EBBFD01DB0E2D6006C13AE /* YXNetWorking */,
-				32EBBFD31DB0E2D6006C13AE /* YXPlayerGUI */,
+				32E9BA1C1DBE105F004E9C04 /* YXOthers */,
 				32EBC0021DB0E2D7006C13AE /* YXSource */,
 			);
 			path = YXClasses;
@@ -281,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				32EBBFD61DB0E2D6006C13AE /* YXLiveDetailViewController.h */,
-				32EBBFD71DB0E2D7006C13AE /* YXLiveDetailViewController.m */,
+				32E9BA231DBE1073004E9C04 /* YXLiveDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,7 +399,6 @@
 			isa = PBXGroup;
 			children = (
 				32EBC0031DB0E2D7006C13AE /* images */,
-				32EBC0101DB0E2D7006C13AE /* YXGlobalDefine.h */,
 			);
 			path = YXSource;
 			sourceTree = "<group>";
@@ -781,7 +810,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E9BA221DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				32EBC0221DB0E2D7006C13AE /* YXWebView.m in Sources */,
+				32E9BA241DBE1073004E9C04 /* YXLiveDetailViewController.m in Sources */,
 				32EBC0151DB0E2D7006C13AE /* YXNetWorking.m in Sources */,
 				32EBC0241DB0E2D7006C13AE /* YXLiveModel.m in Sources */,
 				32F3B99D1D71324E0096F0CA /* main.m in Sources */,
@@ -791,7 +822,6 @@
 				32EBC0181DB0E2D7006C13AE /* YXLiveStream.m in Sources */,
 				32EBC0281DB0E2D7006C13AE /* YXNavigationController.m in Sources */,
 				32EBC0261DB0E2D7006C13AE /* YXLiveCollectionCell.m in Sources */,
-				32EBC0161DB0E2D7006C13AE /* YXLiveDetailViewController.m in Sources */,
 				32EBC0171DB0E2D7006C13AE /* YXCommentModel.m in Sources */,
 				32EBC01A1DB0E2D7006C13AE /* YXBottomInputView.m in Sources */,
 				32EBC0111DB0E2D7006C13AE /* NSString+YXExtension.m in Sources */,
