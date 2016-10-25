@@ -14,7 +14,7 @@
 #import "YXNetWorking.h"
 
 
-@interface YXCommentView ()<YXBottomInputViewDelegate>
+@interface YXCommentView ()<YXBottomInputViewDelegate, UITableViewDelegate>
 @property (nonatomic, strong) MASConstraint *bottomInputViewBotConstarint;
 @end
 
@@ -100,8 +100,13 @@
     }
 }
 
-#pragma mark BottomInputViewDelegate
+#pragma mark TableViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self resignTextviewFirstResponder];
+    [UIMenuController sharedMenuController].menuVisible = NO;
+}
 
+#pragma mark BottomInputViewDelegate
 - (void)bottomInputView:(YXBottomInputView *)bottomInputView sendMessage:(NSString *)message {
     //当按下回车，发送评论的时候，会执行该代理方法。
     //YXTODO:在这里传入用户名，用户ID，用户头像
