@@ -418,7 +418,8 @@
 }
 
 - (void)timeChanged:(UISlider *)sender {
-    if (self.liveModel.streamStatus == 2) {
+    [self dealNoRepeatTimer];
+    if (self.liveStream.status == 2) {
         if (self.calculateTimer) {
             [self dealCalculateTimer];
         }
@@ -427,7 +428,8 @@
 }
 
 - (void)timeChangedFinish:(UISlider *)sender {
-    if (self.liveModel.streamStatus == 2) {
+    [self createNoRepeatTimer];
+    if (self.liveStream.status == 2) {
         CMTime time = CMTimeMake(sender.value, 1);
         [self.playView seekTo:time];
         if (!self.calculateTimer) {
