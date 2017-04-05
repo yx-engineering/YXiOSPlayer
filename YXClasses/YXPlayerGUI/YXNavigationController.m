@@ -8,6 +8,7 @@
 
 #import "YXNavigationController.h"
 #import "YXLiveDetailViewController.h"
+#import "YXLiveViewController.h"
 @interface YXNavigationController ()
 
 @end
@@ -21,6 +22,8 @@
 
 - (BOOL)shouldAutorotate {
     if ([self.visibleViewController isKindOfClass:[YXLiveDetailViewController class]]) {
+        return YES;
+    } else if ([self.visibleViewController isKindOfClass:[YXLiveViewController class]]) {
         return YES;
     }
     return NO;
