@@ -56,7 +56,6 @@
         [self.indicator startAnimating];
         [self loadMoreData];
     }
-    
     YXCommentTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YXCommentTableCell" forIndexPath:indexPath];
     cell.commentModel = self.dataArr[indexPath.row];
     return cell;

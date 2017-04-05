@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1296749474A25DBEAB0FFBA3 /* Pods_YXPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3963CD1011F2F076621276 /* Pods_YXPlayerDemo.framework */; };
+		32CD519E1E8E2F6C003BC887 /* LivePlayViewBottomCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CD519D1E8E2F6C003BC887 /* LivePlayViewBottomCover.m */; };
 		32E9BA221DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E9BA201DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		32E9BA241DBE1073004E9C04 /* YXLiveDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E9BA231DBE1073004E9C04 /* YXLiveDetailViewController.m */; };
 		32EBBFC41DB0E2C2006C13AE /* YXEnterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBBFC11DB0E2C2006C13AE /* YXEnterViewController.m */; };
@@ -43,10 +44,6 @@
 		32EBC02E1DB0E2D7006C13AE /* detail_play_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC0091DB0E2D7006C13AE /* detail_play_icon@3x.png */; };
 		32EBC02F1DB0E2D7006C13AE /* favorite_favorite_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00A1DB0E2D7006C13AE /* favorite_favorite_icon@2x.png */; };
 		32EBC0301DB0E2D7006C13AE /* favorite_favorite_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00B1DB0E2D7006C13AE /* favorite_favorite_icon@3x.png */; };
-		32EBC0311DB0E2D7006C13AE /* live_gift_btn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00C1DB0E2D7006C13AE /* live_gift_btn_highlighted@2x.png */; };
-		32EBC0321DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00D1DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png */; };
-		32EBC0331DB0E2D7006C13AE /* live_gift_btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00E1DB0E2D7006C13AE /* live_gift_btn_normal@2x.png */; };
-		32EBC0341DB0E2D7006C13AE /* live_gift_btn_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EBC00F1DB0E2D7006C13AE /* live_gift_btn_normal@3x.png */; };
 		32EBC03A1DB0EE3E006C13AE /* NSTimer+YXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBC0391DB0EE3E006C13AE /* NSTimer+YXExtension.m */; };
 		32F3B99D1D71324E0096F0CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F3B99C1D71324E0096F0CA /* main.m */; };
 		32F3B9A81D71324E0096F0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F3B9A71D71324E0096F0CA /* Assets.xcassets */; };
@@ -83,6 +80,8 @@
 		2B3AA493DD02F41FF9F3AAE5 /* Pods-YXPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXPlayerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YXPlayerDemo/Pods-YXPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		32034A991D7425F9001C9AA4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3212801E1DB4AF31007BA154 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		32CD519C1E8E2F6C003BC887 /* LivePlayViewBottomCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivePlayViewBottomCover.h; sourceTree = "<group>"; };
+		32CD519D1E8E2F6C003BC887 /* LivePlayViewBottomCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivePlayViewBottomCover.m; sourceTree = "<group>"; };
 		32E9BA1F1DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		32E9BA201DBE105F004E9C04 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		32E9BA211DBE105F004E9C04 /* YXGlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGlobalDefine.h; sourceTree = "<group>"; };
@@ -146,10 +145,6 @@
 		32EBC0091DB0E2D7006C13AE /* detail_play_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_play_icon@3x.png"; sourceTree = "<group>"; };
 		32EBC00A1DB0E2D7006C13AE /* favorite_favorite_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_favorite_icon@2x.png"; sourceTree = "<group>"; };
 		32EBC00B1DB0E2D7006C13AE /* favorite_favorite_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_favorite_icon@3x.png"; sourceTree = "<group>"; };
-		32EBC00C1DB0E2D7006C13AE /* live_gift_btn_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_highlighted@2x.png"; sourceTree = "<group>"; };
-		32EBC00D1DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_highlighted@3x.png"; sourceTree = "<group>"; };
-		32EBC00E1DB0E2D7006C13AE /* live_gift_btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_normal@2x.png"; sourceTree = "<group>"; };
-		32EBC00F1DB0E2D7006C13AE /* live_gift_btn_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live_gift_btn_normal@3x.png"; sourceTree = "<group>"; };
 		32EBC0381DB0EE3E006C13AE /* NSTimer+YXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+YXExtension.h"; sourceTree = "<group>"; };
 		32EBC0391DB0EE3E006C13AE /* NSTimer+YXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+YXExtension.m"; sourceTree = "<group>"; };
 		32F3B9981D71324E0096F0CA /* YXPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +327,8 @@
 		32EBBFDF1DB0E2D7006C13AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				32CD519C1E8E2F6C003BC887 /* LivePlayViewBottomCover.h */,
+				32CD519D1E8E2F6C003BC887 /* LivePlayViewBottomCover.m */,
 				32EBBFE01DB0E2D7006C13AE /* YXBottomInputView.h */,
 				32EBBFE11DB0E2D7006C13AE /* YXBottomInputView.m */,
 				32EBBFE21DB0E2D7006C13AE /* YXCalculateTimeLabel.h */,
@@ -414,10 +411,6 @@
 				32EBC0091DB0E2D7006C13AE /* detail_play_icon@3x.png */,
 				32EBC00A1DB0E2D7006C13AE /* favorite_favorite_icon@2x.png */,
 				32EBC00B1DB0E2D7006C13AE /* favorite_favorite_icon@3x.png */,
-				32EBC00C1DB0E2D7006C13AE /* live_gift_btn_highlighted@2x.png */,
-				32EBC00D1DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png */,
-				32EBC00E1DB0E2D7006C13AE /* live_gift_btn_normal@2x.png */,
-				32EBC00F1DB0E2D7006C13AE /* live_gift_btn_normal@3x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -636,16 +629,12 @@
 				32EBC02C1DB0E2D7006C13AE /* detail_fullscreen_btn_normal@3x.png in Resources */,
 				32EBC0301DB0E2D7006C13AE /* favorite_favorite_icon@3x.png in Resources */,
 				32F3B9E31D7132990096F0CA /* detail_play_icon@3x.png in Resources */,
-				32EBC0321DB0E2D7006C13AE /* live_gift_btn_highlighted@3x.png in Resources */,
 				32EBC0291DB0E2D7006C13AE /* activity_default_img@3x.png in Resources */,
 				32F3B9A81D71324E0096F0CA /* Assets.xcassets in Resources */,
 				32EBC02D1DB0E2D7006C13AE /* detail_pause_icon@3x.png in Resources */,
 				32F3B9E21D7132990096F0CA /* detail_pause_icon@3x.png in Resources */,
-				32EBC0331DB0E2D7006C13AE /* live_gift_btn_normal@2x.png in Resources */,
 				32EBC02A1DB0E2D7006C13AE /* defaultHead.png in Resources */,
-				32EBC0311DB0E2D7006C13AE /* live_gift_btn_highlighted@2x.png in Resources */,
 				32EBC02B1DB0E2D7006C13AE /* detail_fullscreen_btn_normal@2x.png in Resources */,
-				32EBC0341DB0E2D7006C13AE /* live_gift_btn_normal@3x.png in Resources */,
 				32EBC02E1DB0E2D7006C13AE /* detail_play_icon@3x.png in Resources */,
 				32EBC02F1DB0E2D7006C13AE /* favorite_favorite_icon@2x.png in Resources */,
 			);
@@ -820,6 +809,7 @@
 				32EBC0231DB0E2D7006C13AE /* YXLiveListViewController.m in Sources */,
 				32EBC01E1DB0E2D7006C13AE /* YXCommentView.m in Sources */,
 				32EBC0181DB0E2D7006C13AE /* YXLiveStream.m in Sources */,
+				32CD519E1E8E2F6C003BC887 /* LivePlayViewBottomCover.m in Sources */,
 				32EBC0281DB0E2D7006C13AE /* YXNavigationController.m in Sources */,
 				32EBC0261DB0E2D7006C13AE /* YXLiveCollectionCell.m in Sources */,
 				32EBC0171DB0E2D7006C13AE /* YXCommentModel.m in Sources */,

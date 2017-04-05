@@ -10,7 +10,7 @@
 #import "YXPlayerKit.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface YXLiveViewController ()
+@interface YXLiveViewController ()<PLPlayerDelegate>
 @property (nonatomic, strong) YXPlayer *player;
 @property (nonatomic, weak) UIButton *playBtn;
 @end
@@ -29,10 +29,11 @@
 }
 
 - (void) addSubViews {
-   
+    
     self.player = [YXPlayer playerWithURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"] option:[YXPlayerOption defaultOption]];
     self.player.yxAppId = @"企业APPID";
     self.player.yxStreamId = @"直播ID";
+    self.player.delegate = self; //设置代理
     [self.view addSubview:self.player.playerView];
     
     UIButton *playBtn = [[UIButton alloc] init];
@@ -58,8 +59,7 @@
     }];
 }
 - (void)didClickPlayBtn:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    sender.selected ? [self.player play] : [self.player pause];
+    self.player.playing ? [self.player pause] : [self.player play];
 }
 
 
@@ -84,6 +84,25 @@
         [self.view setNeedsLayout];
     } completion:nil];
 }
+
+
+/**
+ 告知代理对象播放器状态变更
+ */
+- (void)player:(nonnull PLPlayer *)player statusDidChange:(PLPlayerStatus)state {
+    switch (state) {
+            case PLPlayerStatusPlaying:
+            self.playBtn.selected = YES;
+            break;
+            case PLPlayerStatusStopped:
+            self.playBtn.selected = NO;
+            break;
+        default:
+            self.playBtn.selected = NO;
+            break;
+    }
+}
+
 
 - (void)dealloc {
     NSLog(@"YXLiveViewController 销毁");

@@ -18,6 +18,7 @@
 - (instancetype)init {
     self = [super init];
     self.delegate = self;
+    self.scalesPageToFit = YES;
     self.start = true;
     [self addSubviews];
     return self;
