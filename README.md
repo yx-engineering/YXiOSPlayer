@@ -70,7 +70,10 @@ YXPlayerOption *option = [YXPlayerOption defaultOption];
 
 ```Objective-C
 // 初始化 YXPlayer
+//回放时使用此接口
 self.player = [YXPlayer playerWithURL:self.URL option:option];
+//直播使用此接口
+self.player = [YXPlayer playerLiveWithURL:self.URL option:option];
 // 设定企业APPId (必须) 
 self.player.yxAppId = @"企业APPId";
 // 设定直播Id (必须)
@@ -89,7 +92,6 @@ self.player.delegate = self;
 开始／暂停操作
 
 ```Objective-C
-
 // 播放
 [self.player play];
 
@@ -101,6 +103,18 @@ self.player.delegate = self;
 
 // 继续播放
 [self.player resume];
+```
+视频时长/视频节点
+
+```Objective-C
+//回放时获取视频总时长(单位：秒)，当播放器初始化后，播放状态可以切换到 PLPlayerStatusPlaying 后可以获取到,可以 在 statusDidChange 代理方法中获取
+float maxValue = self.player.totalDuration / self.player.totalDuration.timescale
+//回放时获取视频当前时间节点(单位：秒)
+float currentTime = self.player.currentTime / self.player.currentTime.timescale
+//回放时跳到指定视频节点
+float secondTime = 600; //单位：秒
+CMTime time = CMTimeMake(secondTime, 1);
+[self.player seekTo:time];
 ```
 
 播放器状态获取
