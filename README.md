@@ -107,8 +107,8 @@ self.player.delegate = self;
 视频时长/视频节点
 
 ```Objective-C
-//回放时获取视频总时长(单位：秒)，当播放器初始化后，播放状态可以切换到 PLPlayerStatusPlaying 后可以获取到,可以 在 statusDidChange 代理方法中获取
-float maxValue = self.player.totalDuration / self.player.totalDuration.timescale
+//回放时获取视频总时长(单位：秒)，当播放器初始化后，播放状态可以切换到 PLPlayerStatusPlaying 后才可以获取到self.player.totalDuration
+float totoalTime = self.player.totalDuration / self.player.totalDuration.timescale
 //回放时获取视频当前时间节点(单位：秒)
 float currentTime = self.player.currentTime / self.player.currentTime.timescale
 //回放时跳到指定视频节点
@@ -124,6 +124,17 @@ CMTime time = CMTimeMake(secondTime, 1);
 - (void)player:(nonnull PLPlayer *)player statusDidChange:(PLPlayerStatus)state {
 // 这里会返回流的各种状态，你可以根据状态做 UI 定制及各类其他业务操作
 // 除了 Error 状态，其他状态都会回调这个方法
+  switch (state) {
+            case PLPlayerStatusPlaying:
+            //重复获取视频总时长时，视频总时长可能会有波动，所以最好判断一下以保证只获取一次
+            if (self.totoalTime == 0) {
+           self.totoalTime = player.totalDuration.value / player.totalDuration.timescale
+        }
+            break;
+        default:
+            
+            break;
+    }
 }
 
 - (void)player:(nonnull PLPlayer *)player stoppedWithError:(nullable NSError *)error {
